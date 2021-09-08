@@ -1,3 +1,21 @@
+#' @title stat.log2
+#'
+#' @description One of the functions required for the  differential expression
+#' analysis using MAST (DEAnalysisMast()) function.
+#'
+#' @param data.m
+#' @param group.v
+#' @param pseudo.count A pseudocount value
+#'
+#' @return A dataframe
+#'
+#' @examples
+#'
+#' @export
+#'
+#' @importFrom dplyr "%>%"
+
+
 stat.log2=function(data.m, group.v, pseudo.count){
   #data.m=data.used.log2
   log2.mean.r <- aggregate(t(data.m), list(as.character(group.v)), function(x) Mean.in.log2space(x,pseudo.count))
