@@ -2,12 +2,28 @@ Package: DWLS
 Type: Package
 Title: DWLS: Gene Expression Deconvolution Using Dampened Weighted Least Squares
 Version: 0.1.0
-Author: Daphne Tsoucas (Edited: Adriana Sistig)
-Maintainer: The package maintainer <adriana.sistig@icahn.mssm.edu>
-Description: Dampened weighted least squares (DWLS) is an estimation method for gene expression deconvolution, in which the cell-type composition of a bulk RNA-seq data set is computationally inferred. This method corrects common biases towards cell types that are characterized by highly expressed genes and/or are highly prevalent, to provide accurate detection across diverse cell types. To begin, the user must input a bulk RNA-seq data set, along with a labeled representative single-cell RNA-seq data set that will serve to generate cell-type-specific gene expression profiles. Ideally, the single-cell data set will contain cells from all cell types that may be found in the bulk data. DWLS will return the cell-type composition of the bulk data.
+Authors@R: c(
+    person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
+    person("Adriana", "Sistig", email = "adriana.sistig@icahn.mssm.edu", 
+    role = "cre"))
+Description: Dampened weighted least squares (DWLS) is an estimation method 
+    for gene expression deconvolution, in which the cell-type composition 
+    of a bulk RNA-seq data set is computationally inferred. This method 
+    corrects common biases towards cell types that are characterized 
+    by highly expressed genes and/or are highly prevalent, to provide 
+    accurate detection across diverse cell types. To begin, the user 
+    must input a bulk RNA-seq data set, along with a labeled representative 
+    single-cell RNA-seq data set that will serve to generate cell-type-specific 
+    gene expression profiles. Ideally, the single-cell data set will contain 
+    cells from all cell types that may be found in the bulk data. DWLS will 
+    return the cell-type composition of the bulk data.
+URL: https://github.com/sistia01/DWLS_CRAN
+Depends:
+    R (>= 3.5.0)
 Imports: 
-  quadprog, reshape, e1071, Seurat, ROCR, varhandle, MAST
-
-License: What license is it under?
+  quadprog, reshape, Seurat, ROCR, varhandle, MAST
+License: GPL-2
 Encoding: UTF-8
+Language: en-US
 LazyData: true
+RoxygenNote: 7.1.1
