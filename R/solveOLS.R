@@ -1,13 +1,19 @@
 #' @title solveOLS
 #'
-#' @description This function solves using OLS. It is constrained such that cell type numbers are greater than 0
+#' @description This function solves or the unknown parameters
+#' using ordinary least squares (OLS). It is constrained such
+#' that cell type numbers are greater than 0.
 #'
-#' @param Signature_Matrix
-#' @param bulkdata
+#' @param S List output from trimData$sig (S)
+#' @param B List output from trimData$bulk (B)
 #'
-#' @return NULL
+#' @return Cell-type proportion
 #'
 #' @examples
+#' trimData(Sig, dataBulk)
+#  S <- test$sig
+#' B <- test$bulk
+#' solveOLS(S, B)
 #'
 #' @export
 #'
@@ -24,3 +30,5 @@ solveOLS<-function(S,B){
   print(round(solution/sum(solution),5))
   return(solution/sum(solution))
 }
+
+test2 <- solveOLS(S, B)

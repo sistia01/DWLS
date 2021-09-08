@@ -1,4 +1,32 @@
-#solve WLS given a dampening constant
+#' @title solveDampenedWLSj
+#'
+#' @description Solve dampened weighted least squares given a dampening constant.
+#'
+#'
+#' Note: The function uses solveDampenedWLSj() and findDampeningConstant().
+#'
+#' @param S List output from trimData$sig (S)
+#' @param B List output from trimData$bulk (B)
+#' @param goldStandard Starting point for the weights, this can be determined
+#' using solveOLSInternal(S,B)
+#' @param j The dampening constant, this can be determined using
+#' findDampeningConstant(S,B,goldStandard)
+#'
+#' @return value (Dampened weighted least squares estimation values)
+#'
+#' @examples
+#' trimData(Sig, dataBulk)
+#  S <- test$sig
+#' B <- test$bulk
+#' solution <- solveOLSInternal(S,B)
+#' j <- findDampeningConstant(S,B,solution)
+#' solveDampenedWLSj(S,B,goldStandard,j)
+#'
+#' @export
+#'
+#' @importFrom dplyr "%>%"
+
+
 solveDampenedWLSj<-function(S,B,goldStandard,j){
   multiplier<-1*2^(j-1)
   sol<-goldStandard
