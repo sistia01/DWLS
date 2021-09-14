@@ -6,7 +6,24 @@ Authors@R: c(
     person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
     person("Adriana", "Sistig", email = "adriana.sistig@icahn.mssm.edu", 
     role = "cre"))
-Description: Dampened weighted least squares (DWLS) is an estimation method 
+Description: The rapid development of single-cell transcriptomic technologies 
+    has helped uncover the cellular heterogeneity within cell populations. 
+    However, bulk RNA-seq continues to be the main workhorse for quantifying 
+    gene expression levels due to technical simplicity and low cost. 
+    To most effectively extract information from bulk data given the new 
+    knowledge gained from single-cell methods, we have developed a novel 
+    algorithm to estimate the cell-type composition of bulk data from a 
+    single-cell RNA-seq-derived cell-type signature. Comparison with existing 
+    methods using various real RNA-seq data sets indicates that our new 
+    approach is more accurate and comprehensive than previous methods, 
+    especially for the estimation of rare cell types. More importantly,
+    our method can detect cell-type composition changes in response to external 
+    perturbations, thereby providing a valuable, cost-effective method for 
+    dissecting the cell-type-specific effects of drug treatments or condition 
+    changes. As such, our method is applicable to a wide range of biological 
+    and clinical investigations.
+    
+    Dampened weighted least squares (DWLS) is an estimation method 
     for gene expression deconvolution, in which the cell-type composition 
     of a bulk RNA-seq data set is computationally inferred. This method 
     corrects common biases towards cell types that are characterized 
@@ -16,7 +33,12 @@ Description: Dampened weighted least squares (DWLS) is an estimation method
     single-cell RNA-seq data set that will serve to generate cell-type-specific 
     gene expression profiles. Ideally, the single-cell data set will contain 
     cells from all cell types that may be found in the bulk data. DWLS will 
-    return the cell-type composition of the bulk data.
+    return the cell-type composition of the bulk data. 
+    
+    See: https://www.nature.com/articles/s41467-019-10802-z.pdf for more 
+    information about the development of DWLS and the methods behind our 
+    functions. 
+    
 URL: https://github.com/sistia01/DWLS_CRAN
 Depends:
     R (>= 3.5.0)

@@ -28,7 +28,8 @@
 #  S <- test$sig
 #' B <- test$bulk
 #' solveDampenedWLS(S, B)
-#' @export
+#'
+#' @export solveDampenedWLS
 #'
 #' @importFrom dplyr "%>%"
 

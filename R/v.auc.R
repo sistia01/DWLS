@@ -1,15 +1,26 @@
-#' @title Signature Matrix Using MAST
+#' @title v.auc
 #'
-#' @description This function builds a signature matrix using genes identified
-#'   by the DEAnalysisMAST() function.
+#' @description Uses the prediction() function in order to create standardized
+#' output from the data in order to perform an AUC calculation. The calculation
+#' results are rounded to the third decimal place. This function serves mainly
+#' to support the DWLS function.
 #'
-#' @param symbol
+#' @param data.m Data
+#' @param group.v Data subdivision
 #'
-#' @return Signature Matrix
+#' @return Matrix of standardized output of AUC calculation
 #'
 #' @examples
 #'
-#' @export
+#' \dontrun{
+#' m.auc=function(data.m,group.v) {
+#' AUC=apply(data.m, 1, function(x) v.auc(x,group.v))
+#' AUC[is.na(AUC)]=0.5
+#' return(AUC)}
+#'
+#'
+#'@export v.auc
+#'
 #'
 #' @importFrom dplyr "%>%"
 

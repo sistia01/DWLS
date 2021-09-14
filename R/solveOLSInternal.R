@@ -15,7 +15,7 @@
 #' B <- test$bulk
 #' solveOLSInternal(S, B)
 #'
-#' @export
+#' @export solveOLSInternal
 #'
 #' @importFrom dplyr "%>%"
 #'

@@ -1,3 +1,90 @@
+#' @title DEAnalysisMAST
+#'
+#' @description Perform DE analysis using MAST.
+#' Dampened weighted least squares (DLWS) is an estimation
+#' method for gene expression deconvolution, in which the cell-type
+#' composition of a bulk RNA-seq data set is computationally inferred.
+#' This method corrects common biases towards cell types that are
+#' characterized by highly expressed genes and/or are highly prevalent,
+#' to provide accurate detection across diverse cell types. To begin,
+#' the user must input a bulk RNA-seq data set, along with a labeled
+#' representative single-cell RNA-seq data set that will serve to generate
+#' cell-type-specific gene expression profiles. Ideally, the single-cell
+#' data set will contain cells from all cell types that may be found in the
+#' bulk data. DWLS will return the cell-type composition of the bulk data.
+#' First, solve OLS then use the solution to find a starting point for the
+#' weights. Next, the dampened weighted least squares is performed. The weights
+#' are iterated until convergence then the dampening constant for weights is
+#' found using cross-validation (with decreasing step size for convergence).
+#'
+#' DWLS captures ISC composition changes across conditions.
+#' One of the most important applications of deconvolution methods is in
+#' the identification of cell-type composition variations across conditions.
+#'
+#' Note: The function uses solveDampenedWLSj() and findDampeningConstant().
+#'
+#' @param S List output from trimData$sig (S)
+#' @param B List output from trimData$bulk (B)
+#'
+#' @return matrix
+#' The resulting matrix is a gene by cell-type signature matrix.
+#' The cell-type signature matrix is constructed using a representative
+#' single-cell data set, such that all cell types expected in the bulk
+#' data are also represented in the single-cell data (the converse need not be
+#' true). The single-cell data is first clustered to reveal
+#' its constituent cell types.
+#'
+#'
+#' @examples
+#' trimData(Sig, dataBulk)
+#  S <- test$sig
+#' B <- test$bulk
+#' solveDampenedWLS(S, B)
+#'
+#' @export DEAnalysisMAST
+#'
+#' @importFrom dplyr "%>%"
+
+
+
+#functions for DE
+
+Mean.in.log2space=function(x,pseudo.count) {
+  return(log2(mean(2^(x)-pseudo.count)+pseudo.count))
+}
+
+stat.log2=function(data.m, group.v, pseudo.count){
+  #data.m=data.used.log2
+  log2.mean.r <- aggregate(t(data.m), list(as.character(group.v)),
+                           function(x) Mean.in.log2space(x,pseudo.count))
+  log2.mean.r <- t(log2.mean.r)
+  colnames(log2.mean.r) <- paste("mean.group",log2.mean.r[1,], sep="")
+  log2.mean.r = log2.mean.r[-1,]
+  log2.mean.r = as.data.frame(log2.mean.r)
+  log2.mean.r = varhandle::unfactor(log2.mean.r)  #from varhandle
+  log2.mean.r[,1] = as.numeric(log2.mean.r[,1])
+  log2.mean.r[,2] = as.numeric(log2.mean.r[,2])
+  log2_foldchange = log2.mean.r$mean.group1-log2.mean.r$mean.group0
+  results = data.frame(cbind(log2.mean.r$mean.group0,
+                             log2.mean.r$mean.group1,log2_foldchange))
+  colnames(results) = c("log2.mean.group0","log2.mean.group1","log2_fc")
+  rownames(results) = rownames(log2.mean.r)
+  return(results)
+}
+
+v.auc = function(data.v,group.v) {
+  prediction.use=prediction(data.v, group.v, 0:1)
+  perf.use=performance(prediction.use,"auc")
+  auc.use=round(perf.use@y.values[[1]],3)
+  return(auc.use)
+}
+m.auc=function(data.m,group.v) {
+  AUC=apply(data.m, 1, function(x) v.auc(x,group.v))
+  AUC[is.na(AUC)]=0.5
+  return(AUC)
+
+}
+
 #perform DE analysis using MAST
 DEAnalysisMAST<-function(scdata,id,path){
 
@@ -10,8 +97,10 @@ DEAnalysisMAST<-function(scdata,id,path){
     cells.coord.list2      = match(cells.symbol.list2, colnames(data.used.log2))
     cells.symbol.list1     = colnames(data.used.log2)[which(id != i)]
     cells.coord.list1      = match(cells.symbol.list1, colnames(data.used.log2))
-    data.used.log2.ordered  = cbind(data.used.log2[,cells.coord.list1], data.used.log2[,cells.coord.list2])
-    group.v <- c(rep(0,length(cells.coord.list1)), rep(1, length(cells.coord.list2)))
+    data.used.log2.ordered  = cbind(data.used.log2[,cells.coord.list1],
+                                    data.used.log2[,cells.coord.list2])
+    group.v <- c(rep(0,length(cells.coord.list1)),
+                 rep(1, length(cells.coord.list2)))
     #ouput
     log2.stat.result <- stat.log2(data.used.log2.ordered, group.v, pseudo.count)
     Auc <- m.auc(data.used.log2.ordered, group.v)
@@ -48,7 +137,6 @@ DEAnalysisMAST<-function(scdata,id,path){
       lrTest.table <-  merge(zlm.lr_pvalue, DE, by.x = "primerid", by.y = "row.names")
       colnames(lrTest.table) <- c("Gene", "test.type", "p_value", paste("log2.mean.", "Cluster_Other", sep=""), paste("log2.mean.",i,sep=""), "log2fold_change", "Auc")
       cluster_lrTest.table <- lrTest.table[rev(order(lrTest.table$Auc)),]
-
       #. 4 save results
       write.csv(cluster_lrTest.table, file=paste(path,"/",i,"_lrTest.csv", sep=""))
       #save(cluster_lrTest.table, file=paste(path,"/",i,"_MIST.RData", sep=""))

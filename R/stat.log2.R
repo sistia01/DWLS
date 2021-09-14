@@ -3,15 +3,26 @@
 #' @description One of the functions required for the  differential expression
 #' analysis using MAST (DEAnalysisMast()) function.
 #'
-#' @param data.m
-#' @param group.v
+#' @param data.m Data
+#' @param group.v Groupings
 #' @param pseudo.count A pseudocount value
 #'
-#' @return A dataframe
+#' @return A dataframe of the log2 applied results
 #'
 #' @examples
+#' pseudo.count = 0.1
+#' data.used.log2   <- log2(scdata+pseudo.count)
+#' colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
+#' diff.cutoff=0.5
+#' for (i in unique(id)){
+#'   cells.symbol.list2     = colnames(data.used.log2)[which(id==i)]
+#'   cells.coord.list2      = match(cells.symbol.list2, colnames(data.used.log2))
+#'   cells.symbol.list1     = colnames(data.used.log2)[which(id != i)]
+#'   cells.coord.list1      = match(cells.symbol.list1, colnames(data.used.log2))
+#'   data.used.log2.ordered  = cbind(data.used.log2[,cells.coord.list1], data.used.log2[,cells.coord.list2])
+#' group.v <- c(rep(0,length(cells.coord.list1)), rep(1, length(cells.coord.list2)))
 #'
-#' @export
+#' @export stat.log2
 #'
 #' @importFrom dplyr "%>%"
 
@@ -32,3 +43,5 @@ stat.log2=function(data.m, group.v, pseudo.count){
   rownames(results) = rownames(log2.mean.r)
   return(results)
 }
+
+

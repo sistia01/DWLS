@@ -16,7 +16,7 @@
 #' B <- test$bulk
 #' solveSVR(S, B)
 #'
-#' @export
+#' @export solveSVR
 #'
 #' @importFrom dplyr "%>%"
 

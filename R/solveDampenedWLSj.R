@@ -22,7 +22,7 @@
 #' j <- findDampeningConstant(S,B,solution)
 #' solveDampenedWLSj(S,B,goldStandard,j)
 #'
-#' @export
+#' @export solveDampenedWLSj
 #'
 #' @importFrom dplyr "%>%"
 
