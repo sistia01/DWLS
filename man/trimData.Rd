@@ -4,15 +4,22 @@
 \alias{trimData}
 \title{trimData}
 \usage{
-trimData(Signature, bulkData)
+trimData(Signature_Matrix, bulkdata)
 }
 \arguments{
-\item{bulkdata}{}
+\item{Signature_Matrix}{A single-cell signature matrix}
+
+\item{bulkdata}{A bulk dataset}
+}
+\value{
+A list of trimmed bulk and single-cell data.
 }
 \description{
-This function trims bulk and single-cell data to contain the same genes
+This function trims bulk and single-cell data to
+contain the same genes. The result is a list of the intersecting genes
+within the two datasets.
 }
 \examples{
-trimData(Signature, bulkData)
+trimData(Signature_Matrix = Sig, bulkdata = dataBulk)
 
 }

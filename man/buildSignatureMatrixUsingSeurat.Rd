@@ -13,15 +13,39 @@ buildSignatureMatrixUsingSeurat(
 )
 }
 \arguments{
-\item{symbol}{}
+\item{scdata}{The data}
+
+\item{id}{The identities of the genes}
+
+\item{path}{The path to the file results}
+
+\item{diff.cutoff}{This is automaticlaly set to 0.5}
+
+\item{pval.cutoff}{This is automatically set to 0.01}
 }
 \value{
-Signature Matrix
+Signature Matrix built using the Seurat algorithm
 }
 \description{
 This function builds a signature matrix using genes identified
   by the DEAnalysis() function.
 }
 \examples{
+#
+\dontrun{
+load("data/dataSC_1.RData")
+load("data/dataSC_2.RData")
+dataSC <- cbind(dataSC_1, dataSC_2)
+load("data/trueLabels.RData")
+load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+load("data/labels.RData") #read in single-cell labels from clustering
+labels<-trueLabels
+newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+for (i in 1:length(newcat)){
+  labels[which(labels==(i-1))]<-newcat[i]
+  }
+Signature<-buildSignatureMatrixUsingSeurat(dataSC,labels,"results",
+diff.cutoff=0.5,pval.cutoff=0.01)
+}
 
 }

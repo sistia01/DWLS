@@ -19,7 +19,7 @@
 #'   cells.coord.list2      = match(cells.symbol.list2, colnames(data.used.log2))
 #'   cells.symbol.list1     = colnames(data.used.log2)[which(id != i)]
 #'   cells.coord.list1      = match(cells.symbol.list1, colnames(data.used.log2))
-#'   data.used.log2.ordered  = cbind(data.used.log2[,cells.coord.list1], data.used.log2[,cells.coord.list2])
+#'   data.used.log2.ordered  = cbind(data.used.log2[,cells.coord.list1], data.used.log2[,cells.coord.list2])}
 #' group.v <- c(rep(0,length(cells.coord.list1)), rep(1, length(cells.coord.list2)))
 #'
 #' @export stat.log2

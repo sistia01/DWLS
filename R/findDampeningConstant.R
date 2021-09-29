@@ -7,7 +7,8 @@
 #' calculated (on a randomly selected half of the genes).
 #' Note that infinite weights are ignored.The dampening constant that
 #' results in least cross-validation variance is chosen. It functions
-#' in a nondeterministic manner.
+#' in a nondeterministic manner. The dampening constant defines the maximum
+#' value that any weight can take on.
 #'
 #' @param S List output from trimData$sig (S)
 #' @param B List output from trimData$bulk (B)
@@ -21,7 +22,7 @@
 #' B <- test$bulk
 #' solution <- solveOLSInternal(S,B)
 #' findDampeningConstant(S, B, solution)
-#' @export
+#' @export findDampeningConstant
 #'
 #' @importFrom dplyr "%>%"
 

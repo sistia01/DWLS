@@ -30,5 +30,3 @@ solveOLS<-function(S,B){
   print(round(solution/sum(solution),5))
   return(solution/sum(solution))
 }
-
-test2 <- solveOLS(S, B)

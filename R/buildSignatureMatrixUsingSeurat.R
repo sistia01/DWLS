@@ -3,32 +3,56 @@
 #' @description This function builds a signature matrix using genes identified
 #'   by the DEAnalysis() function.
 #'
-#' @param symbol
+#' @param scdata The data
+#' @param id The identities of the genes
+#' @param path The path to the file results
+#' @param diff.cutoff This is automaticlaly set to 0.5
+#' @param pval.cutoff This is automatically set to 0.01
 #'
-#' @return Signature Matrix
+#' @return Signature Matrix built using the Seurat algorithm
 #'
-#' @examples
+#' @examples#
+#' \dontrun{
+#' load("data/dataSC_1.RData")
+#' load("data/dataSC_2.RData")
+#' dataSC <- cbind(dataSC_1, dataSC_2)
+#' load("data/trueLabels.RData")
+#' load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#' load("data/labels.RData") #read in single-cell labels from clustering
+#' labels<-trueLabels
+# #Change to real labels
+#' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+#' for (i in 1:length(newcat)){
+#'   labels[which(labels==(i-1))]<-newcat[i]
+#'   }
+#' Signature<-buildSignatureMatrixUsingSeurat(dataSC,labels,"results",
+#' diff.cutoff=0.5,pval.cutoff=0.01)
+#' }
 #'
 #' @export buildSignatureMatrixUsingSeurat
 
-buildSignatureMatrixUsingSeurat<-function(scdata,id,path,diff.cutoff=0.5,pval.cutoff=0.01){
 
+buildSignatureMatrixUsingSeurat<-function(scdata,id,path,
+                                          diff.cutoff=0.5,pval.cutoff=0.01){
   #perform differential expression analysis
-  DEAnalysis(scdata,id,path)
+  DEAnalysisSeuratIdents(scdata,id,path)
 
   numberofGenes<-c()
   for (i in unique(id)){
     #load(file=paste(path,"/de_",i,".RData",sep=""))
     readRDS(file=paste(path,"/de_",i,".rds", sep =""))
     #load(file=paste("results","/de_",i,".rds", sep =""))
-    DEGenes<-rownames(de_group)[intersect(which(de_group$p_val_adj<pval.cutoff),which(de_group$avg_log2FC>diff.cutoff))]
+    DEGenes<-rownames(de_group)[intersect(which(de_group$p_val_adj<pval.cutoff),
+                                          which(de_group$avg_log2FC>diff.cutoff))]
     nonMir = grep("MIR|Mir", DEGenes, invert = T)
-    assign(paste("cluster_lrTest.table.",i,sep=""),de_group[which(rownames(de_group)%in%DEGenes[nonMir]),])
+    assign(paste("cluster_lrTest.table.",i,sep=""),
+           de_group[which(rownames(de_group)%in%DEGenes[nonMir]),])
     numberofGenes<-c(numberofGenes,length(DEGenes[nonMir]))
   }
 
   #need to reduce number of genes
-  #for each subset, order significant genes by decreasing fold change, choose between 50 and 200 genes
+  #for each subset, order significant genes by
+  #decreasing fold change, choose between 50 and 200 genes
   #choose matrix with lowest condition number
   conditionNumbers<-c()
   for(G in 50:200){
@@ -54,8 +78,8 @@ buildSignatureMatrixUsingSeurat<-function(scdata,id,path,diff.cutoff=0.5,pval.cu
     colnames(Sig)<-unique(id)
     conditionNumbers<-c(conditionNumbers,kappa(Sig))
   }
-  G<-which.min(conditionNumbers)+min(49,numberofGenes-1) #G is optimal gene number
-  #
+  G<-which.min(conditionNumbers)+min(49,numberofGenes-1)
+  #G is optimal gene number
   Genes<-c()
   j=1
   for (i in unique(id)){
@@ -75,6 +99,7 @@ buildSignatureMatrixUsingSeurat<-function(scdata,id,path,diff.cutoff=0.5,pval.cu
     Sig<-cbind(Sig,(apply(ExprSubset,1,function(y) mean(y[which(id==i)]))))
   }
   colnames(Sig)<-unique(id)
+  print("Saving the Signature Matrix file in specified path.")
   save(Sig,file=paste(path,"/Sig.RData",sep=""))
   return(Sig)
 }

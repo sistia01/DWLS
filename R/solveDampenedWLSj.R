@@ -15,12 +15,14 @@
 #' @return value (Dampened weighted least squares estimation values)
 #'
 #' @examples
+#' \dontrun{
 #' trimData(Sig, dataBulk)
 #  S <- test$sig
 #' B <- test$bulk
 #' solution <- solveOLSInternal(S,B)
 #' j <- findDampeningConstant(S,B,solution)
 #' solveDampenedWLSj(S,B,goldStandard,j)
+#' }
 #'
 #' @export solveDampenedWLSj
 #'

@@ -3,14 +3,35 @@
 #' @description This function builds a signature matrix using genes identified
 #'   by the DEAnalysisMAST() function.
 #'
-#' @param symbol
+#' @param scdata The data
+#' @param id The identities of the genes
+#' @param path The path to the file results
+#' @param diff.cutoff This is automatically set to 0.5
+#' @param pval.cutoff This is automatically set to 0.01
 #'
-#' @return Signature Matrix
+#' @return Signature Matrix built using the MAST algorithm
 #'
 #' @examples
 #'
-#' @export 
-#' 
+#' \dontrun{
+#' load("data/dataSC_1.RData")
+#' load("data/dataSC_2.RData")
+#' dataSC <- cbind(dataSC_1, dataSC_2)
+#' load("data/trueLabels.RData")
+#' load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#' load("data/labels.RData") #read in single-cell labels from clustering
+#' labels<-trueLabels
+# #Change to real labels
+#' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+#' for (i in 1:length(newcat)){
+#'   labels[which(labels==(i-1))]<-newcat[i]
+#'   }
+#' Signature<-buildSignatureMatrixMAST(dataSC,labels,"results",
+#' diff.cutoff=0.5,pval.cutoff=0.01)
+#' }
+#'
+#' @export buildSignatureMatrixMAST
+#'
 #' @importFrom dplyr "%>%"
 
 
@@ -80,7 +101,7 @@ buildSignatureMatrixMAST<-function(scdata,id,path,diff.cutoff=0.5,pval.cutoff=0.
     Sig<-cbind(Sig,(apply(ExprSubset,1,function(y) mean(y[which(id==i)]))))
   }
   colnames(Sig)<-unique(id)
-  #save(Sig,file=paste(path,"/Sig.RData",sep=""))
+  save(Sig,file=paste(path,"/Sig.RData",sep=""))
   saveRDS(Sig,file=paste(path,"/Sig.rds",sep=""))
   return(Sig)
 }

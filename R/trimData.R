@@ -1,6 +1,8 @@
 #' @title trimData
 #'
-#' @description This function trims bulk and single-cell data to contain the same genes
+#' @description This function trims bulk and single-cell data to
+#' contain the same genes. The result is a list of the intersecting genes
+#' within the two datasets.
 #'
 #' @param Signature_Matrix  A single-cell signature matrix
 #' @param bulkdata A bulk dataset
@@ -10,7 +12,7 @@
 #' @examples
 #' trimData(Signature_Matrix = Sig, bulkdata = dataBulk)
 #'
-#' @export
+#' @export trimData
 #'
 #' @importFrom dplyr "%>%"
 

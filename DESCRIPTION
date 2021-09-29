@@ -1,6 +1,6 @@
 Package: DWLS
 Type: Package
-Title: DWLS: Gene Expression Deconvolution Using Dampened Weighted Least Squares
+Title: Gene Expression Deconvolution Using Dampened Weighted Least Squares
 Version: 0.1.0
 Authors@R: c(
     person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
@@ -21,31 +21,25 @@ Description: The rapid development of single-cell transcriptomic technologies
     perturbations, thereby providing a valuable, cost-effective method for 
     dissecting the cell-type-specific effects of drug treatments or condition 
     changes. As such, our method is applicable to a wide range of biological 
-    and clinical investigations.
-    
-    Dampened weighted least squares (DWLS) is an estimation method 
-    for gene expression deconvolution, in which the cell-type composition 
-    of a bulk RNA-seq data set is computationally inferred. This method 
-    corrects common biases towards cell types that are characterized 
-    by highly expressed genes and/or are highly prevalent, to provide 
-    accurate detection across diverse cell types. To begin, the user 
+    and clinical investigations.Dampened weighted least squares (DWLS) is 
+    an estimation method for gene expression deconvolution, in which 
+    the cell-type composition of a bulk RNA-seq data set is computationally 
+    inferred. This method corrects common biases towards cell types that are 
+    characterized by highly expressed genes and/or are highly prevalent, to 
+    provide accurate detection across diverse cell types. To begin, the user 
     must input a bulk RNA-seq data set, along with a labeled representative 
     single-cell RNA-seq data set that will serve to generate cell-type-specific 
     gene expression profiles. Ideally, the single-cell data set will contain 
     cells from all cell types that may be found in the bulk data. DWLS will 
     return the cell-type composition of the bulk data. 
-    
     See: https://www.nature.com/articles/s41467-019-10802-z.pdf for more 
     information about the development of DWLS and the methods behind our 
     functions. 
-    
 URL: https://github.com/sistia01/DWLS_CRAN
-Depends:
-    R (>= 3.5.0)
-Imports: 
-  quadprog, reshape, Seurat, ROCR, varhandle, MAST
+Depends: R (>= 3.5.0)
+Imports: quadprog, reshape, Seurat, ROCR, varhandle, MAST, dplyr
 License: GPL-2
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

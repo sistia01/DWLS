@@ -36,56 +36,35 @@
 #'
 #'
 #' @examples
-#' trimData(Sig, dataBulk)
-#  S <- test$sig
-#' B <- test$bulk
-#' solveDampenedWLS(S, B)
+#' \dontrun{
+#' load("data/dataSC_1.RData")
+#' load("data/dataSC_1.RData")
+#' load("data/trueLabels.RData")
+#' load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#' load("data/labels.RData") #read in single-cell labels from clustering
+#' labels<-trueLabels
+#' dataSC <- cbind(dataSC_1, dataSC_2)
+# #Change to real labels
+#' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+#' for (i in 1:length(newcat)){
+#'   labels[which(labels==(i-1))]<-newcat[i]
+#'   }
+#' #Run deconvolution
+#' Mast_test <- DEAnalysisMAST(dataSC, labels, "results")
+#' }
 #'
 #' @export DEAnalysisMAST
 #'
 #' @importFrom dplyr "%>%"
-
-
-
-#functions for DE
-
-Mean.in.log2space=function(x,pseudo.count) {
-  return(log2(mean(2^(x)-pseudo.count)+pseudo.count))
-}
-
-stat.log2=function(data.m, group.v, pseudo.count){
-  #data.m=data.used.log2
-  log2.mean.r <- aggregate(t(data.m), list(as.character(group.v)),
-                           function(x) Mean.in.log2space(x,pseudo.count))
-  log2.mean.r <- t(log2.mean.r)
-  colnames(log2.mean.r) <- paste("mean.group",log2.mean.r[1,], sep="")
-  log2.mean.r = log2.mean.r[-1,]
-  log2.mean.r = as.data.frame(log2.mean.r)
-  log2.mean.r = varhandle::unfactor(log2.mean.r)  #from varhandle
-  log2.mean.r[,1] = as.numeric(log2.mean.r[,1])
-  log2.mean.r[,2] = as.numeric(log2.mean.r[,2])
-  log2_foldchange = log2.mean.r$mean.group1-log2.mean.r$mean.group0
-  results = data.frame(cbind(log2.mean.r$mean.group0,
-                             log2.mean.r$mean.group1,log2_foldchange))
-  colnames(results) = c("log2.mean.group0","log2.mean.group1","log2_fc")
-  rownames(results) = rownames(log2.mean.r)
-  return(results)
-}
-
-v.auc = function(data.v,group.v) {
-  prediction.use=prediction(data.v, group.v, 0:1)
-  perf.use=performance(prediction.use,"auc")
-  auc.use=round(perf.use@y.values[[1]],3)
-  return(auc.use)
-}
-m.auc=function(data.m,group.v) {
-  AUC=apply(data.m, 1, function(x) v.auc(x,group.v))
-  AUC[is.na(AUC)]=0.5
-  return(AUC)
-
-}
+#' @importFrom MAST "FromFlatDF"
+#' @importFrom MAST "zlm"
+#' @importFrom MAST "show"
+#' @importFrom MAST "lrTest"
+#' @importFrom reshape "melt"
+#'
 
 #perform DE analysis using MAST
+
 DEAnalysisMAST<-function(scdata,id,path){
 
   pseudo.count = 0.1
@@ -139,8 +118,12 @@ DEAnalysisMAST<-function(scdata,id,path){
       cluster_lrTest.table <- lrTest.table[rev(order(lrTest.table$Auc)),]
       #. 4 save results
       write.csv(cluster_lrTest.table, file=paste(path,"/",i,"_lrTest.csv", sep=""))
-      #save(cluster_lrTest.table, file=paste(path,"/",i,"_MIST.RData", sep=""))
+      save(cluster_lrTest.table, file=paste(path,"/",i,"_MIST.RData", sep=""))
       saveRDS(cluster_lrTest.table, file=paste(path,"/",i,"_MIST.rds", sep=""))
+      print("The RData differential expression results are in the 'results' folder for:")
+      print(i)
     }
   }
 }
+
+

@@ -7,11 +7,21 @@
 solveOLS(S, B)
 }
 \arguments{
-\item{bulkdata}{}
+\item{S}{List output from trimData$sig (S)}
+
+\item{B}{List output from trimData$bulk (B)}
+}
+\value{
+Cell-type proportion
 }
 \description{
-This function solves using OLS. It is constrained such that cell type numbers are greater than 0
+This function solves or the unknown parameters
+using ordinary least squares (OLS). It is constrained such
+that cell type numbers are greater than 0.
 }
 \examples{
+trimData(Sig, dataBulk)
+B <- test$bulk
+solveOLS(S, B)
 
 }
