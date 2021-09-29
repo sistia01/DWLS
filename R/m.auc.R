@@ -23,7 +23,6 @@
 #'   log2.stat.result <- stat.log2(data.used.log2.ordered,
 #'                                     group.v, pseudo.count)
 #'   Auc <- m.auc(data.used.log2.ordered, group.v)}
-#'   }
 #' }
 #'
 #' @export m.auc
@@ -32,6 +31,4 @@
 m.auc=function(dataset, grouping) {
   AUC=apply(dataset, 1, function(x) v.auc(x,grouping))
   AUC[is.na(AUC)]=0.5
-  return(AUC)
-
-}
+  return(AUC)}
