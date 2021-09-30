@@ -37,6 +37,4 @@ for (i in unique(id)){
   log2.stat.result <- stat.log2(data.used.log2.ordered,
                                     group.v, pseudo.count)
   Auc <- m.auc(data.used.log2.ordered, group.v)}
-}
-
-}
+}}
