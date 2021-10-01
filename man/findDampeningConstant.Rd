@@ -7,9 +7,9 @@
 findDampeningConstant(S, B, goldStandard)
 }
 \arguments{
-\item{S}{List output from trimData$sig (S)}
+\item{S}{List output from trimData$Sig (S)}
 
-\item{B}{List output from trimData$bulk (B)}
+\item{B}{List output from trimData$dataBulk (B)}
 
 \item{goldStandard}{Starting point for the weights, determined by solving OLS}
 }
@@ -28,8 +28,12 @@ in a nondeterministic manner. The dampening constant defines the maximum
 value that any weight can take on.
 }
 \examples{
-trimData(Sig, dataBulk)
-B <- test$bulk
+\dontrun{
+trimmed <- trimData(Sig, dataBulk)
+S <- trimmed$sig
+B <- trimmed$bulk
 solution <- solveOLSInternal(S,B)
 findDampeningConstant(S, B, solution)
+}
+
 }

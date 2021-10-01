@@ -10,9 +10,9 @@
 #' @return Cell-type proportion
 #'
 #' @examples
-#' trimData(Sig, dataBulk)
-#  S <- test$sig
-#' B <- test$bulk
+#' trimmed <- trimData(Sig, dataBulk)
+#' S <- trimmed$sig
+#' B <- trimmed$bulk
 #' solveOLS(S, B)
 #'
 #' @export solveOLS

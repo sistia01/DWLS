@@ -19,7 +19,7 @@ buildSignatureMatrixUsingSeurat(
 
 \item{path}{The path to the file results}
 
-\item{diff.cutoff}{This is automaticlaly set to 0.5}
+\item{diff.cutoff}{This is automatically set to 0.5}
 
 \item{pval.cutoff}{This is automatically set to 0.01}
 }

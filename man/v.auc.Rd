@@ -7,9 +7,9 @@
 v.auc(data.v, group.v)
 }
 \arguments{
-\item{group.v}{Data subdivision}
+\item{data.v}{Data}
 
-\item{data.m}{Data}
+\item{group.v}{Data subdivision}
 }
 \value{
 Matrix of standardized output of AUC calculation

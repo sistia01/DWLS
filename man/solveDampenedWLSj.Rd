@@ -28,8 +28,9 @@ Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 }
 \examples{
 \dontrun{
-trimData(Sig, dataBulk)
-B <- test$bulk
+trimmed <- trimData(Sig, dataBulk)
+S <- trimmed$sig
+B <- trimmed$bulk
 solution <- solveOLSInternal(S,B)
 j <- findDampeningConstant(S,B,solution)
 solveDampenedWLSj(S,B,goldStandard,j)

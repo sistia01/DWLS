@@ -6,7 +6,7 @@
 #' @param scdata The data
 #' @param id The identities of the genes
 #' @param path The path to the file results
-#' @param diff.cutoff This is automaticlaly set to 0.5
+#' @param diff.cutoff This is automatically set to 0.5
 #' @param pval.cutoff This is automatically set to 0.01
 #'
 #' @return Signature Matrix built using the Seurat algorithm
@@ -30,7 +30,6 @@
 #' }
 #'
 #' @export buildSignatureMatrixUsingSeurat
-
 
 buildSignatureMatrixUsingSeurat<-function(scdata,id,path,
                                           diff.cutoff=0.5,pval.cutoff=0.01){

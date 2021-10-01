@@ -20,8 +20,9 @@ using ordinary least squares (OLS). It is constrained such
 that cell type numbers are greater than 0.
 }
 \examples{
-trimData(Sig, dataBulk)
-B <- test$bulk
+trimmed <- trimData(Sig, dataBulk)
+S <- trimmed$sig
+B <- trimmed$bulk
 solveOLS(S, B)
 
 }

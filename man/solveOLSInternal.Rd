@@ -20,8 +20,9 @@ using ordinary least squares (OLS) without printing the output.
 It returns the cell numbers, not the proportions (see solveOLS).
 }
 \examples{
-trimData(Sig, dataBulk)
-B <- test$bulk
+trimmed <- trimData(Sig, dataBulk)
+S <- trimmed$sig
+B <- trimmed$bulk
 solveOLSInternal(S, B)
 
 }

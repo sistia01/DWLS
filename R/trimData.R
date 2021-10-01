@@ -17,9 +17,9 @@
 #' @importFrom dplyr "%>%"
 
 trimData<-function(Signature_Matrix,bulkdata){
-  Genes<-intersect(rownames(Signature),names(bulkData))
-  B<-bulkData[Genes]
-  S<-Signature[Genes,]
+  Genes<-intersect(rownames(Signature_Matrix),names(bulkdata))
+  B<-bulkdata[Genes]
+  S<-Signature_Matrix[Genes,]
   return(list("sig"=S,"bulk"=B))
 }
 

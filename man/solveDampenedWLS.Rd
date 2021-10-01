@@ -7,9 +7,9 @@
 solveDampenedWLS(S, B)
 }
 \arguments{
-\item{S}{List output from trimData$sig (S)}
+\item{S}{List output from trimData}
 
-\item{B}{List output from trimData$bulk (B)}
+\item{B}{List output from trimData}
 }
 \value{
 value (Dampened weighted least squares estimation values)
@@ -34,8 +34,9 @@ found using cross-validation (with decreasing step size for convergence).
 Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 }
 \examples{
-trimData(Sig, dataBulk)
-B <- test$bulk
+trimmed <- trimData(Sig, dataBulk)
+S <- trimmed$sig
+B <- trimmed$bulk
 solveDampenedWLS(S, B)
 
 }

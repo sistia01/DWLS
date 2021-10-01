@@ -16,9 +16,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' trimData(Sig, dataBulk)
-#  S <- test$sig
-#' B <- test$bulk
+#' trimmed <- trimData(Sig, dataBulk)
+#' S <- trimmed$sig
+#' B <- trimmed$bulk
 #' solution <- solveOLSInternal(S,B)
 #' j <- findDampeningConstant(S,B,solution)
 #' solveDampenedWLSj(S,B,goldStandard,j)
@@ -27,6 +27,7 @@
 #' @export solveDampenedWLSj
 #'
 #' @importFrom dplyr "%>%"
+#' @importFrom quadprog "solve.QP"
 
 
 solveDampenedWLSj<-function(S,B,goldStandard,j){

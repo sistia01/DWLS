@@ -10,14 +10,15 @@
 #' @return Cell numbers
 #'
 #' @examples
-#' trimData(Sig, dataBulk)
-#  S <- test$sig
-#' B <- test$bulk
+#' trimmed <- trimData(Sig, dataBulk)
+#' S <- trimmed$sig
+#' B <- trimmed$bulk
 #' solveOLSInternal(S, B)
 #'
 #' @export solveOLSInternal
 #'
 #' @importFrom dplyr "%>%"
+#' @importFrom quadprog "solve.QP"
 #'
 
 

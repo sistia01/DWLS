@@ -19,7 +19,7 @@ Calculates the AUC of a dataset. The function mainly serves
 to support the DWLS function.
 }
 \examples{
-\dontrun {
+\dontrun{
 pseudo.count = 0.1
 data.used.log2   <- log2(scdata+pseudo.count)
 colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
@@ -37,4 +37,6 @@ for (i in unique(id)){
   log2.stat.result <- stat.log2(data.used.log2.ordered,
                                     group.v, pseudo.count)
   Auc <- m.auc(data.used.log2.ordered, group.v)}
-}}
+}
+
+}

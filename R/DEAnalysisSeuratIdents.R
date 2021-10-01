@@ -21,7 +21,8 @@
 #' load("data/labels.RData") #read in single-cell labels from clustering
 #' labels<-trueLabels
 # #Change to real labels
-#' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+#' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth",
+#' "Tuft","EE")
 #' for (i in 1:length(newcat)){
 #'   labels[which(labels==(i-1))]<-newcat[i]
 #'   }
@@ -31,10 +32,12 @@
 #' @export DEAnalysisSeuratIdents
 #'
 #' @importFrom Seurat "CreateSeuratObject"
+#' @importFrom Seurat "FindMarkers"
+#' @importFrom Seurat "Idents"
 #'
 #'
 DEAnalysisSeuratIdents<-function(scdata,id,path){
-  exprObj<-CreateSeuratObject(counts=as.data.frame(scdata), project = "DE")
+  exprObj<- CreateSeuratObject(counts=as.data.frame(scdata), project = "DE")
   Idents(object = exprObj) <- as.vector(id)
   print("Calculating differentially expressed genes:")
   for (i in unique(id)){

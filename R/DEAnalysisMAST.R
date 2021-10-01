@@ -23,8 +23,9 @@
 #'
 #' Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 #'
-#' @param S List output from trimData$sig (S)
-#' @param B List output from trimData$bulk (B)
+#' @param scdata The gene expression datafarme
+#' @param id The unique identities within the data
+#' @param path The path for the RData results
 #'
 #' @return matrix
 #' The resulting matrix is a gene by cell-type signature matrix.
@@ -60,7 +61,10 @@
 #' @importFrom MAST "zlm"
 #' @importFrom MAST "show"
 #' @importFrom MAST "lrTest"
+#' @importFrom SummarizedExperiment "colData"
 #' @importFrom reshape "melt"
+#' @importFrom utils "head"
+#' @importFrom utils "write.csv"
 #'
 
 #perform DE analysis using MAST

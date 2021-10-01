@@ -5,7 +5,7 @@
 #' results are rounded to the third decimal place. This function serves mainly
 #' to support the DWLS function.
 #'
-#' @param data.m Data
+#' @param data.v Data
 #' @param group.v Data subdivision
 #'
 #' @return Matrix of standardized output of AUC calculation
@@ -19,10 +19,11 @@
 #' return(AUC)}
 #' }
 #'
-#'@export v.auc
-#'
+#' @export v.auc
 #'
 #' @importFrom dplyr "%>%"
+#' @importFrom ROCR "prediction"
+#' @importFrom ROCR "performance"
 
 
 v.auc = function(data.v,group.v) {

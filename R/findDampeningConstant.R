@@ -10,21 +10,26 @@
 #' in a nondeterministic manner. The dampening constant defines the maximum
 #' value that any weight can take on.
 #'
-#' @param S List output from trimData$sig (S)
-#' @param B List output from trimData$bulk (B)
+#' @param S List output from trimData$Sig (S)
+#' @param B List output from trimData$dataBulk (B)
 #' @param goldStandard Starting point for the weights, determined by solving OLS
 #'
 #' @return value (dampening constant value)
 #'
 #' @examples
-#' trimData(Sig, dataBulk)
-#  S <- test$sig
-#' B <- test$bulk
+#' \dontrun{
+#' trimmed <- trimData(Sig, dataBulk)
+#' S <- trimmed$sig
+#' B <- trimmed$bulk
 #' solution <- solveOLSInternal(S,B)
 #' findDampeningConstant(S, B, solution)
+#' }
+#'
 #' @export findDampeningConstant
 #'
 #' @importFrom dplyr "%>%"
+#' @importFrom stats "lm"
+#' @importFrom stats "sd"
 
 findDampeningConstant<-function(S,B,goldStandard){
   solutionsSd<-NULL

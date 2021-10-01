@@ -18,20 +18,21 @@
 #'
 #' Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 #'
-#' @param S List output from trimData$sig (S)
-#' @param B List output from trimData$bulk (B)
+#' @param S List output from trimData
+#' @param B List output from trimData
 #'
 #' @return value (Dampened weighted least squares estimation values)
 #'
 #' @examples
-#' trimData(Sig, dataBulk)
-#  S <- test$sig
-#' B <- test$bulk
+#' trimmed <- trimData(Sig, dataBulk)
+#' S <- trimmed$sig
+#' B <- trimmed$bulk
 #' solveDampenedWLS(S, B)
 #'
 #' @export solveDampenedWLS
 #'
 #' @importFrom dplyr "%>%"
+#' @importFrom quadprog "solve.QP"
 
 
 solveDampenedWLS<-function(S,B){

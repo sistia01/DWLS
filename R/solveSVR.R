@@ -30,14 +30,15 @@
 #' @return Value (SVR)
 #'
 #' @examples
-#' trimData(Sig, dataBulk)
-#  S <- test$sig
-#' B <- test$bulk
+#' trimmed <- trimData(Sig, dataBulk)
+#' S <- trimmed$sig
+#' B <- trimmed$bulk
 #' solveSVR(S, B)
 #'
 #' @export solveSVR
 #'
 #' @importFrom dplyr "%>%"
+#' @importFrom e1071 "svm"
 
 
 

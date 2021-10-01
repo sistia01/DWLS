@@ -32,6 +32,7 @@
 #' @export DEAnalysisSeurat
 #'
 #' @importFrom dplyr "%>%"
+#' @importFrom Seurat "FindMarkers"
 #'
 DEAnalysisSeurat<-function(scdata,id,path){
   exprObj<-CreateSeuratObject(counts=as.data.frame(scdata), project = "DE")

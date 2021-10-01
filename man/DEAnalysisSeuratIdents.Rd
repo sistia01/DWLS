@@ -31,7 +31,8 @@ load("data/trueLabels.RData")
 load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
 load("data/labels.RData") #read in single-cell labels from clustering
 labels<-trueLabels
-newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth",
+"Tuft","EE")
 for (i in 1:length(newcat)){
   labels[which(labels==(i-1))]<-newcat[i]
   }

@@ -7,9 +7,11 @@
 DEAnalysisMAST(scdata, id, path)
 }
 \arguments{
-\item{S}{List output from trimData$sig (S)}
+\item{scdata}{The gene expression datafarme}
 
-\item{B}{List output from trimData$bulk (B)}
+\item{id}{The unique identities within the data}
+
+\item{path}{The path for the RData results}
 }
 \value{
 matrix
