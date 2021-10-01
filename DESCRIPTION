@@ -26,21 +26,10 @@ Description: The rapid development of single-cell transcriptomic technologies
     the cell-type composition of a bulk RNA-seq data set is computationally 
     inferred. This method corrects common biases towards cell types that are 
     characterized by highly expressed genes and/or are highly prevalent, to 
-    provide accurate detection across diverse cell types. To begin, the user 
-    must input a bulk RNA-seq data set, along with a labeled representative 
-    single-cell RNA-seq data set that will serve to generate cell-type-specific 
-    gene expression profiles. Ideally, the single-cell data set will contain 
-    cells from all cell types that may be found in the bulk data. DWLS will 
-    return the cell-type composition of the bulk data. 
-    See: https://www.nature.com/articles/s41467-019-10802-z.pdf for more 
+    provide accurate detection across diverse cell types. See: 
+    https://www.nature.com/articles/s41467-019-10802-z.pdf for more 
     information about the development of DWLS and the methods behind our 
     functions. 
-    How to use: To begin, the user must input a bulk RNA-seq data set, 
-    along with a labeled representative single-cell data set that will serve to 
-    generate cell-type-specific gene expression profiles. Ideally, the 
-    single-cell data set will contain cells from all cell types that may be 
-    found in the bulk data. DWLS will return the cell-type composition of the 
-    bulk data.
 URL: https://github.com/sistia01/DWLS_CRAN
 Depends: R (>= 3.5.0)
 Imports: quadprog, reshape, Seurat, ROCR , varhandle, MAST,
