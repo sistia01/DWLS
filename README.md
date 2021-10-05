@@ -30,3 +30,11 @@ Ye F, et al: Mapping the Mouse Cell Atlas by Microwell-Seq. Cell 2018,
 [Tsoucas D, Dong R, Chen H, Zhu Q, Guo G, Yuan GC. Accurate estimation of 
 cell-type composition from gene expression data. Nat Commun. 
 2019 Jul 5;10(1):2975.](https://www.nature.com/articles/s41467-019-10802-z)
+
+
+-- 
+<!-- badges: start -->
+[![R-CMD-check]
+(https://github.com/sistia01/DWLS/workflows/R-CMD-check/badge.svg)]
+(https://github.com/sistia01/DWLS/actions)
+<!-- badges: end -->
