@@ -34,7 +34,5 @@ cell-type composition from gene expression data. Nat Commun.
 
 -- 
 <!-- badges: start -->
-[![R-CMD-check]
-(https://github.com/sistia01/DWLS/workflows/R-CMD-check/badge.svg)]
-(https://github.com/sistia01/DWLS/actions)
+[![R-CMD-check](https://github.com/sistia01/DWLS/workflows/R-CMD-check/badge.svg)](https://github.com/sistia01/DWLS/actions)
 <!-- badges: end -->
