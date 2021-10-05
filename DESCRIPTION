@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
     person("Adriana", "Sistig", email = "adriana.sistig@icahn.mssm.edu", 
-    role = "aut","cre"))
+    role = c("aut","cre")))
 Description: The rapid development of single-cell transcriptomic technologies 
     has helped uncover the cellular heterogeneity within cell populations. 
     However, bulk RNA-seq continues to be the main workhorse for quantifying 

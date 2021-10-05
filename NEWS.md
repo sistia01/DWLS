@@ -1,3 +1,7 @@
 # DWLS 0.1.0
 
-* Added a `NEWS.md` file to track changes to the package.
+DWLS v0.1.0 (Release date: 2021-10-05)
+=======================================
+
+First commit. 
+
