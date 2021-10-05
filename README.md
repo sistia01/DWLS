@@ -16,15 +16,17 @@ DWLS will return the cell-type composition of the bulk data.
 [1] Schelker M, Feau S, Du J, Ranu N, Klipp E, MacBeath G, Schoeberl B, Raue 
 A: Estimation of immune cell content in tumour tissue using single-cell 
 RNA-seq data. Nat Commun 2017, 8:2032. 
+
 [2] Yan KS, Janda CY, Chang J, Zheng GXY, Larkin KA, Luca VC, Chia LA, 
 Mah AT, Han A, Terry JM, et al: Non-equivalence of Wnt and R-spondin ligands 
 during Lgr5. Nature 2017, 545:238-242. 
+
 [3] Han X, Wang R, Zhou Y, Fei L, Sun H, Lai S, Saadatpour A, Zhou Z, Chen H, 
 Ye F, et al: Mapping the Mouse Cell Atlas by Microwell-Seq. Cell 2018, 
 172:1091-1107.e1017.
 
 # References
 
-Tsoucas D, Dong R, Chen H, Zhu Q, Guo G, Yuan GC. Accurate estimation of 
+"[Tsoucas D, Dong R, Chen H, Zhu Q, Guo G, Yuan GC. Accurate estimation of 
 cell-type composition from gene expression data. Nat Commun. 
-2019 Jul 5;10(1):2975. (https://www.nature.com/articles/s41467-019-10802-z)
+2019 Jul 5;10(1):2975.]" "(https://www.nature.com/articles/s41467-019-10802-z)"
