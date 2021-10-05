@@ -11,7 +11,7 @@ cell-type-specific gene expression profiles. Ideally, the single-cell data
 set will contain cells from all cell types that may be found in the bulk data. 
 DWLS will return the cell-type composition of the bulk data.
 
-# Data sources:
+# Data Sources
 
 [1] Schelker M, Feau S, Du J, Ranu N, Klipp E, MacBeath G, Schoeberl B, Raue 
 A: Estimation of immune cell content in tumour tissue using single-cell 
