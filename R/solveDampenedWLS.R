@@ -37,6 +37,7 @@
 
 solveDampenedWLS<-function(S,B){
   solution<-solveOLSInternal(S,B)
+  #solution <- solveSVR(S,B)
   iterations<-0
   changes<-c()
   j<-findDampeningConstant(S,B,solution)

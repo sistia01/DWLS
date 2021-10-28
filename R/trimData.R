@@ -4,7 +4,7 @@
 #' contain the same genes. The result is a list of the intersecting genes
 #' within the two datasets.
 #'
-#' @param Signature_Matrix  A single-cell signature matrix
+#' @param Signature_Matrix A single-cell signature matrix
 #' @param bulkdata A bulk dataset
 #'
 #' @return A list of trimmed bulk and single-cell data.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/solveOLSInternal.R
 \name{solveOLSInternal}
 \alias{solveOLSInternal}
-\title{solveOLSinternal}
+\title{solveOLSInternal}
 \usage{
 solveOLSInternal(S, B)
 }

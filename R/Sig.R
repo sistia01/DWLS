@@ -1,6 +1,6 @@
 #' Signature matrix
 #'
-#' This is an exmaple of the output form buildSignatureMatrixUsingSeurat
+#' This is an example of the output form buildSignatureMatrixUsingSeurat
 #' function. A similar output is created using buildSignatureMatrixMAST.
 #'
 #'

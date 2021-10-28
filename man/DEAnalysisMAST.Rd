@@ -20,7 +20,8 @@ The cell-type signature matrix is constructed using a representative
 single-cell data set, such that all cell types expected in the bulk
 data are also represented in the single-cell data (the converse need not be
 true). The single-cell data is first clustered to reveal
-its constituent cell types.
+its constituent cell types.The function will return 3 different files:
+an RData file, an rds file, and a csv file.
 }
 \description{
 Perform DE analysis using MAST.

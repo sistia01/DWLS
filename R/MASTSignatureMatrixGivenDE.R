@@ -1,17 +1,17 @@
-#' @title Signature Matrix Using MAST
+#' @title Build Signature matrix using MAST given a differential expression
+#' matrix
 #'
-#' @description This function builds a signature matrix using genes identified
-#'   by the DEAnalysisMAST() function.
+#' @description This function builds a signature matrix using a pre-created
+#' differential expression matrix. The input matrix must have the same format
+#' as the DEAnalysisMAST() function and must be saved as an RData file
+#' ending with _MIST. The file must be named identity_MIST.RData.
+#' See exampledata_MIST.RData for more information (inst/man).
 #'
 #' @param scdata The data
 #' @param id The identities of the genes
 #' @param path The path to the file results
 #' @param diff.cutoff This is automatically set to 0.5
 #' @param pval.cutoff This is automatically set to 0.01
-#' @param f The maximum number of genes (when creating the signature matrix,
-#' need to reduce number of genes, between 50:f number of significant genes are
-#' chosen). If not set, this number is automatically set to 200.
-#'
 #'
 #' @return Signature Matrix built using the MAST algorithm
 #'
@@ -35,15 +35,15 @@
 #' diff.cutoff=0.5,pval.cutoff=0.01)
 #' }
 #'
-#' @export buildSignatureMatrixMAST
+#' @export MASTSignatureMatrixGivenDE
 #'
 #' @importFrom dplyr "%>%"
 #' @importFrom stats "p.adjust"
 
 
-buildSignatureMatrixMAST<-function(scdata,id,path,diff.cutoff=0.5,
-                                   pval.cutoff=0.01, f = 200)
-  { DEAnalysisMAST(scdata,id,path)
+MASTSignatureMatrixGivenDE<-function(scdata,id,path,
+                                   diff.cutoff=0.5,pval.cutoff=0.01){
+  #DEAnalysisMAST(scdata,id,path)
   numberofGenes<-c()
   for (i in unique(id)){
     if(file.exists(paste(path,"/",i,"_MIST.RData", sep=""))){
@@ -52,11 +52,11 @@ buildSignatureMatrixMAST<-function(scdata,id,path,diff.cutoff=0.5,
                                 n = length(cluster_lrTest.table[,3]))
       cluster_lrTest.table<-cbind(cluster_lrTest.table,pvalue_adjusted)
       DEGenes<-cluster_lrTest.table$Gene[intersect(which
-                                              (pvalue_adjusted<pval.cutoff),
+                      (pvalue_adjusted<pval.cutoff),
                       which(cluster_lrTest.table$log2fold_change>diff.cutoff))]
       nonMir = grep("MIR|Mir", DEGenes, invert = T)
       assign(paste("cluster_lrTest.table.",i,sep=""),
-    cluster_lrTest.table[which(cluster_lrTest.table$Gene%in%DEGenes[nonMir]),])
+             cluster_lrTest.table[which(cluster_lrTest.table$Gene%in%DEGenes[nonMir]),])
       numberofGenes<-c(numberofGenes,length(DEGenes[nonMir]))
     }
   }
@@ -66,7 +66,7 @@ buildSignatureMatrixMAST<-function(scdata,id,path,diff.cutoff=0.5,
   #choose between 50 and 200 genes
   #for each, iterate and choose matrix with lowest condition number
   conditionNumbers<-c()
-  for(G in 50:f){
+  for(G in 50:200){
     Genes<-c()
     j=1
     for (i in unique(id)){

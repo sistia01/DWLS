@@ -9,7 +9,8 @@ buildSignatureMatrixUsingSeurat(
   id,
   path,
   diff.cutoff = 0.5,
-  pval.cutoff = 0.01
+  pval.cutoff = 0.01,
+  f = 200
 )
 }
 \arguments{
@@ -21,7 +22,11 @@ buildSignatureMatrixUsingSeurat(
 
 \item{diff.cutoff}{This is automatically set to 0.5}
 
-\item{pval.cutoff}{This is automatically set to 0.01}
+\item{pval.cutoff}{The p-value cutoff. This is automatically set to 0.01}
+
+\item{f}{The maximum number of genes (when creating the signature matrix,
+need to reduce number of genes, between 50:f number of significant genes are
+chosen). If not set, this number is automatically set to 200.}
 }
 \value{
 Signature Matrix built using the Seurat algorithm

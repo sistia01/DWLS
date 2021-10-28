@@ -13,8 +13,8 @@
 #' @examples
 #'
 #' \dontrun{
-#' m.auc=function(data.m,group.v) {
-#' AUC=apply(data.m, 1, function(x) v.auc(x,group.v))
+#' m.auc=function(data.m,group.v)
+#' { AUC=apply(data.m, 1, function(x) v.auc(x,group.v))
 #' AUC[is.na(AUC)]=0.5
 #' return(AUC)}
 #' }
@@ -26,9 +26,10 @@
 #' @importFrom ROCR "performance"
 
 
-v.auc = function(data.v,group.v) {
-  prediction.use=prediction(data.v, group.v, 0:1)
+v.auc = function(data.v,group.v)
+  { prediction.use=prediction(data.v, group.v, 0:1)
   perf.use=performance(prediction.use,"auc")
   auc.use=round(perf.use@y.values[[1]],3)
   return(auc.use)
 }
+

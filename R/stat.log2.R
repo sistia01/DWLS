@@ -31,9 +31,9 @@
 #' @importFrom stats "aggregate"
 
 
-stat.log2=function(data.m, group.v, pseudo.count){
+stat.log2=function(data.m, group.v, pseudo.count)
   #data.m=data.used.log2
-  log2.mean.r <- aggregate(t(data.m), list(as.character(group.v)),
+  { log2.mean.r <- aggregate(t(data.m), list(as.character(group.v)),
                            function(x) Mean.in.log2space(x,pseudo.count))
   log2.mean.r <- t(log2.mean.r)
   colnames(log2.mean.r) <- paste("mean.group",log2.mean.r[1,], sep="")

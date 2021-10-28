@@ -1,4 +1,4 @@
-#' @title solveOLSinternal
+#' @title solveOLSInternal
 #'
 #' @description This function solves or the unknown parameters
 #' using ordinary least squares (OLS) without printing the output.

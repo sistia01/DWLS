@@ -28,7 +28,8 @@
 #' @export m.auc
 #' @importFrom dplyr "%>%"
 
-m.auc=function(dataset, grouping) {
-  AUC=apply(dataset, 1, function(x) v.auc(x,grouping))
+m.auc=function(dataset, grouping)
+  { AUC=apply(dataset, 1, function(x) v.auc(x,grouping))
   AUC[is.na(AUC)]=0.5
-  return(AUC)}
+  return(AUC)
+}

@@ -1,1 +1,1 @@
-utils::globalVariables(c("Number.of.Cells", "Idents<-", "de_group"))
+utils::globalVariables(c("Idents<-", "de_group"))

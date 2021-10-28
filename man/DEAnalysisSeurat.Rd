@@ -14,8 +14,8 @@ DEAnalysisSeurat(scdata, id, path)
 \item{path}{The path for the RData results}
 }
 \value{
-An RData file with the differential expression analysis results
-for each unique id.
+An RData and rds file with the differential expression analysis
+results for each unique id.
 }
 \description{
 This function calculates the differential expression values
@@ -27,16 +27,16 @@ saved in an RData file for each unique identity (id).
 load("data/dataSC_1.RData")
 load("data/dataSC_2.RData")
 dataSC <- cbind(dataSC_1, dataSC_2)
-load("data/trueLabels.RData")
 load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
 load("data/labels.RData") #read in single-cell labels from clustering
 labels<-trueLabels
-newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth",
+"Tuft","EE")
 for (i in 1:length(newcat)){
   labels[which(labels==(i-1))]<-newcat[i]
   }
 #Run deconvolution
-Seurat_test2 <- DEAnalysisSeurat(dataSC, labels, "results")
+Seurat_DE <- DEAnalysisSeurat(dataSC, labels, "results")
 }
 
 }

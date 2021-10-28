@@ -3,6 +3,7 @@
 export(DEAnalysisMAST)
 export(DEAnalysisSeurat)
 export(DEAnalysisSeuratIdents)
+export(MASTSignatureMatrixGivenDE)
 export(Mean.in.log2space)
 export(buildSignatureMatrixMAST)
 export(buildSignatureMatrixUsingSeurat)

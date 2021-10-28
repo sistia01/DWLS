@@ -16,7 +16,7 @@ Value (SVR)
 }
 \description{
 Performs a support vector regression (SVR). First, the data is
-scalled then it solves for the SVR. An svm model is used with the following
+scaled then it solves for the SVR. An svm model is used with the following
 specifications nu=0.5,scale = TRUE, type = "nu-regression",
 kernel ="linear",cost = 1.
 
@@ -35,7 +35,7 @@ Citations:
 Newman, A. M. et al. Robust enumeration of cell subsets from tissue
 expression profiles. Nat. Methods 12, 453–457 (2015).
 
-Schelker, M. et al. Estimation of immune cell content in tumour
+Schelker, M. et al. Estimation of immune cell content in tumor
 tissue using single-cell RNA-seq data. Nat. Commun. 8, 2032 (2017).
 }
 \examples{

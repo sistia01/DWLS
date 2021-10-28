@@ -33,7 +33,8 @@
 #' single-cell data set, such that all cell types expected in the bulk
 #' data are also represented in the single-cell data (the converse need not be
 #' true). The single-cell data is first clustered to reveal
-#' its constituent cell types.
+#' its constituent cell types.The function will return 3 different files:
+#' an RData file, an rds file, and a csv file.
 #'
 #'
 #' @examples
@@ -69,9 +70,8 @@
 
 #perform DE analysis using MAST
 
-DEAnalysisMAST<-function(scdata,id,path){
-
-  pseudo.count = 0.1
+DEAnalysisMAST<-function(scdata,id,path)
+  { pseudo.count = 0.1
   data.used.log2  <- log2(scdata+pseudo.count)
   colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
   diff.cutoff=0.5
@@ -92,8 +92,8 @@ DEAnalysisMAST<-function(scdata,id,path){
     DE <- bigtable[bigtable$log2_fc >diff.cutoff,]
     dim(DE)
     if(dim(DE)[1]>1){
-      data.1                 = data.used.log2[,cells.coord.list1]
-      data.2                 = data.used.log2[,cells.coord.list2]
+      data.1 = data.used.log2[,cells.coord.list1]
+      data.2 = data.used.log2[,cells.coord.list2]
       genes.list = rownames(DE)
       log2fold_change        = cbind(genes.list, DE$log2_fc)
       colnames(log2fold_change) = c("gene.name", "log2fold_change")
@@ -110,14 +110,14 @@ DEAnalysisMAST<-function(scdata,id,path){
       vbeta.1 <- subset(vbeta.fa,Number.of.Cells==1)
       # .3 MAST
       head(colData(vbeta.1))
-      zlm.output <- zlm(~ Population, vbeta.1, method='bayesglm', ebayes=TRUE)
+      zlm.output <- zlm(~ Population, vbeta.1, method='bayesglm', ebayes=TRUE, parallel = TRUE)
       show(zlm.output)
       coefAndCI <- summary(zlm.output, logFC=TRUE)
       zlm.lr <- lrTest(zlm.output, 'Population')
       zlm.lr_pvalue <- melt(zlm.lr[,,'Pr(>Chisq)'])
       zlm.lr_pvalue <- zlm.lr_pvalue[which(zlm.lr_pvalue$test.type == 'hurdle'),]
 
-      lrTest.table <-  merge(zlm.lr_pvalue, DE, by.x = "primerid", by.y = "row.names")
+      lrTest.table <- merge(zlm.lr_pvalue, DE, by.x = "primerid", by.y = "row.names")
       colnames(lrTest.table) <- c("Gene", "test.type", "p_value", paste("log2.mean.", "Cluster_Other", sep=""), paste("log2.mean.",i,sep=""), "log2fold_change", "Auc")
       cluster_lrTest.table <- lrTest.table[rev(order(lrTest.table$Auc)),]
       #. 4 save results
