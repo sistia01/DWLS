@@ -27,7 +27,7 @@ Description: The rapid development of single-cell transcriptomic technologies
     inferred. This method corrects common biases towards cell types that are 
     characterized by highly expressed genes and/or are highly prevalent, to 
     provide accurate detection across diverse cell types. See: 
-    https://www.nature.com/articles/s41467-019-10802-z.pdf for more 
+    <https://www.nature.com/articles/s41467-019-10802-z.pdf> for more 
     information about the development of DWLS and the methods behind our 
     functions. 
 URL: https://github.com/sistia01/DWLS
@@ -39,4 +39,5 @@ License: GPL-2
 Encoding: UTF-8
 Language: en-US
 LazyData: true
+#LazyDataCompression: xz
 RoxygenNote: 7.1.2
