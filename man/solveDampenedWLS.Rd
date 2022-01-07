@@ -34,9 +34,10 @@ found using cross-validation (with decreasing step size for convergence).
 Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 }
 \examples{
+\dontrun{
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
 B <- trimmed$bulk
 solveDampenedWLS(S, B)
-
+}
 }

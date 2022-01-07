@@ -33,13 +33,12 @@ Description: The rapid development of single-cell transcriptomic technologies
 URL: https://github.com/sistia01/DWLS
 BugReports: https://github.com/sistia01/DWLS/issues
 Depends: R (>= 3.5.0)
-Imports: quadprog, reshape, Seurat, ROCR , varhandle, MAST,
-    dplyr, stats, utils, e1071, SummarizedExperiment, devtools
+Imports: quadprog, reshape, Seurat, ROCR, varhandle,
+    dplyr, stats, utils, e1071, devtools, MAST, SummarizedExperiment
 License: GPL-2
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-#LazyDataCompression: xz
 RoxygenNote: 7.1.2
 Suggests: 
     testthat (>= 3.0.0)
