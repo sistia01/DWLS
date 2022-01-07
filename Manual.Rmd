@@ -1,0 +1,90 @@
+---
+title: "DWLS"
+author: "Adriana Sistig"
+date: "January 7, 2022"
+output: 
+    html_document:
+        toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Package: DWLS
+## Type: Package
+## Title: Gene Expression Deconvolution Using Dampened Weighted Least Squares
+## Version: 0.1.0
+## Authors: 
+c(person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
+person("Adriana", "Sistig", email = "adriana.sistig@icahn.mssm.edu", 
+role = c("aut","cre")))
+
+# Description
+
+The rapid development of single-cell transcriptomic technologies 
+has helped uncover the cellular heterogeneity within cell populations. 
+However, bulk RNA-seq continues to be the main workhorse for quantifying 
+gene expression levels due to technical simplicity and low cost. 
+To most effectively extract information from bulk data given the new 
+knowledge gained from single-cell methods, we have developed a novel 
+algorithm to estimate the cell-type composition of bulk data from a 
+single-cell RNA-seq-derived cell-type signature. Comparison with existing 
+methods using various real RNA-seq data sets indicates that our new 
+approach is more accurate and comprehensive than previous methods, 
+especially for the estimation of rare cell types. More importantly,
+our method can detect cell-type composition changes in response to external 
+perturbations, thereby providing a valuable, cost-effective method for 
+dissecting the cell-type-specific effects of drug treatments or condition 
+changes. As such, our method is applicable to a wide range of biological 
+and clinical investigations. Dampened weighted least squares (DWLS) is 
+an estimation method for gene expression deconvolution, in which 
+the cell-type composition of a bulk RNA-seq data set is computationally 
+inferred. This method corrects common biases towards cell types that are 
+characterized by highly expressed genes and/or are highly prevalent, to 
+provide accurate detection across diverse cell types. See: 
+<https://www.nature.com/articles/s41467-019-10802-z.pdf> for more 
+information about the development of DWLS and the methods behind our 
+functions. 
+
+# URL 
+
+https://github.com/sistia01/DWLS
+
+# BugReports
+
+https://github.com/sistia01/DWLS/issues
+
+# Depends 
+
+R (>= 3.5.0)
+
+# Imports 
+
+quadprog, reshape, Seurat, ROCR , varhandle, MAST,
+dplyr, stats, utils, e1071, SummarizedExperiment, devtools
+
+# License 
+
+GPL-2
+
+# Encoding 
+
+UTF-8
+
+# Language 
+
+en-US
+
+# LazyData 
+
+true
+
+# RoxygenNote 
+
+7.1.2
+
+# Suggests
+
+    testthat (>= 3.0.0)
+    
+Config/testthat/edition: 3
