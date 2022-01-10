@@ -2,3 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+data-raw*
+# Temporary files created by RMarkdown
+.DS_Store
+# Output files from RCheck
+/*.tar.gz
