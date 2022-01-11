@@ -38,8 +38,7 @@ Imports: quadprog, reshape, Seurat, ROCR, varhandle,
 License: GPL-2
 Encoding: UTF-8
 Language: en-US
-LazyData: true
-#LazyDataCompression:xz
+#LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Suggests: 
