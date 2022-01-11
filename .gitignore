@@ -2,12 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
-data-raw*
 # Temporary files created by RMarkdown
 .DS_Store
 # Output files from RCheck
 /*.tar.gz
 #Reference Manual Files -- moved to inst/rmarkdown
 ^Reference_Manual_DWLS\.md$
-^Reference_Manual_Rd2md\.md$
-^DWLS_0.1.0.pdf$
+DWLS_0.1.0.pdf

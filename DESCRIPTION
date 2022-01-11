@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
     person("Adriana", "Sistig", email = "adriana.sistig@icahn.mssm.edu", 
-    role = c("aut","cre")))
+        role = c("aut","cre")))
 Description: The rapid development of single-cell transcriptomic technologies 
     has helped uncover the cellular heterogeneity within cell populations. 
     However, bulk RNA-seq continues to be the main workhorse for quantifying 
@@ -34,7 +34,7 @@ URL: https://github.com/sistia01/DWLS
 BugReports: https://github.com/sistia01/DWLS/issues
 Depends: R (>= 3.5.0)
 Imports: quadprog, reshape, Seurat, ROCR, varhandle,
-    dplyr, stats, utils, e1071, devtools, MAST, SummarizedExperiment
+    dplyr, stats, utils, e1071, MAST, SummarizedExperiment, devtools
 License: GPL-2
 Encoding: UTF-8
 Language: en-US
