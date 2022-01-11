@@ -10,6 +10,7 @@
 #' data.used.log2   <- log2(scdata+pseudo.count)
 #' colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
 #' diff.cutoff=0.5
+#' id = labels
 #' for (i in unique(id)){
 #'   cells.symbol.list2 = colnames(data.used.log2)[which(id==i)]
 #'   cells.coord.list2 = match(cells.symbol.list2, colnames(data.used.log2))

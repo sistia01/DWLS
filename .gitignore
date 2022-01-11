@@ -8,4 +8,4 @@
 /*.tar.gz
 #Reference Manual Files -- moved to inst/rmarkdown
 ^Reference_Manual_DWLS\.md$
-DWLS_0.1.0.pdf
+^DWLS_0.1.0\.pdf$
