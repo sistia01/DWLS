@@ -27,7 +27,7 @@ Bulk data and signature matrices were scaled to [-1, 1]. These parameter
 and scaling choices match those specified in Schelker et al. in their
 MATLAB code, accessed through https://figshare.com/s/865e694ad06d5857db4b.
 As in Newman et al., model coefficients are extracted from the svm model
-using t(model$coefs) %*% model$SV, and any negative coefficients are set
+using t(model$coefs) \%*\% model$SV, and any negative coefficients are set
 to zero. The coefficients are then scaled by the sum of the coefficients,
 such that the scaled coefficients will sum to one.
 

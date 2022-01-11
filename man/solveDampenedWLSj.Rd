@@ -23,7 +23,6 @@ value (Dampened weighted least squares estimation values)
 \description{
 Solve dampened weighted least squares given a dampening constant.
 
-
 Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 }
 \examples{

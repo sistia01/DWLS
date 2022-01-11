@@ -33,7 +33,7 @@ Signature Matrix built using the Seurat algorithm
 }
 \description{
 This function builds a signature matrix using genes identified
-  by the DEAnalysis() function.
+by the DEAnalysis() function.
 }
 \examples{
 #

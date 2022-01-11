@@ -33,7 +33,7 @@ Signature Matrix built using the MAST algorithm
 }
 \description{
 This function builds a signature matrix using genes identified
-  by the DEAnalysisMAST() function.
+by the DEAnalysisMAST() function.
 }
 \examples{
 
