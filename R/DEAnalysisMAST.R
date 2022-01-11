@@ -104,6 +104,7 @@ DEAnalysisMAST<-function(scdata,id,path)
       data_for_MIST <- as.data.frame(cbind(rep(rownames(counts), dim(counts)[2]), melt(counts),rep(groups, each = dim(counts)[1]), rep(1, dim(counts)[1] * dim(counts)[2]) ))
       colnames(data_for_MIST) = c("Gene", "Subject.ID", "Et", "Population", "Number.of.Cells")
       vbeta = data_for_MIST
+      #vbeta.1 <- vbeta.fa[vbeta.fa[["Number.of.Cells"]] == 1, , drop = FALSE]
       vbeta.fa <-FromFlatDF(vbeta, idvars=c("Subject.ID"),
                             primerid='Gene', measurement='Et', ncells='Number.of.Cells',
                             geneid="Gene",  cellvars=c('Number.of.Cells', 'Population'),

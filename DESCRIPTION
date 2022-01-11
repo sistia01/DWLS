@@ -21,14 +21,14 @@ Description: The rapid development of single-cell transcriptomic technologies
     perturbations, thereby providing a valuable, cost-effective method for 
     dissecting the cell-type-specific effects of drug treatments or condition 
     changes. As such, our method is applicable to a wide range of biological 
-    and clinical investigations. Dampened weighted least squares (DWLS) is 
+    and clinical investigations. Dampened weighted least squares ('DWLS') is 
     an estimation method for gene expression deconvolution, in which 
     the cell-type composition of a bulk RNA-seq data set is computationally 
     inferred. This method corrects common biases towards cell types that are 
     characterized by highly expressed genes and/or are highly prevalent, to 
     provide accurate detection across diverse cell types. See: 
     <https://www.nature.com/articles/s41467-019-10802-z.pdf> for more 
-    information about the development of DWLS and the methods behind our 
+    information about the development of 'DWLS' and the methods behind our 
     functions. 
 URL: https://github.com/sistia01/DWLS
 BugReports: https://github.com/sistia01/DWLS/issues

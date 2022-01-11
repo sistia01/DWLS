@@ -7,3 +7,6 @@ data-raw*
 .DS_Store
 # Output files from RCheck
 /*.tar.gz
+#Reference Manual Files -- moved to inst/rmarkdown
+^Reference_Manual_DWLS\.md$
+^Reference_Manual_Rd2md\.md$
