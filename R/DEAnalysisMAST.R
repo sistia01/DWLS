@@ -71,7 +71,8 @@
 #perform DE analysis using MAST
 
 DEAnalysisMAST<-function(scdata,id,path)
-  { pseudo.count = 0.1
+  { Number.of.Cells <- NULL
+  pseudo.count = 0.1
   data.used.log2  <- log2(scdata+pseudo.count)
   colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
   diff.cutoff=0.5
