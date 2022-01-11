@@ -10,3 +10,4 @@ data-raw*
 #Reference Manual Files -- moved to inst/rmarkdown
 ^Reference_Manual_DWLS\.md$
 ^Reference_Manual_Rd2md\.md$
+^DWLS_0.1.0.pdf$

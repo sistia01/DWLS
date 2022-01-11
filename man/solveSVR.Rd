@@ -23,7 +23,7 @@ kernel ="linear",cost = 1.
 Nu-support vector regression was performed using the svm function in the
 e1071 package in R. Parameters were set to nu = 0.5, type = “nu-regression”,
 kernel = “linear”, cost = 1, and all others to the default values.
-Bulk data and signature matrices were scaled to \link{-1, 1}. These parameter
+Bulk data and signature matrices were scaled to -1, 1. These parameter
 and scaling choices match those specified in Schelker et al. in their
 MATLAB code, accessed through https://figshare.com/s/865e694ad06d5857db4b.
 As in Newman et al., model coefficients are extracted from the svm model
