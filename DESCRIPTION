@@ -32,9 +32,9 @@ Description: The rapid development of single-cell transcriptomic technologies
     functions. 
 URL: https://github.com/sistia01/DWLS
 BugReports: https://github.com/sistia01/DWLS/issues
-Depends: R (>= 3.5.0)
+Depends: R (>= 3.5.0), Matrix (>= 1.3.3)
 Imports: quadprog, reshape, Seurat, ROCR, varhandle,
-    dplyr, stats, utils, e1071, MAST, SummarizedExperiment, Matrix (>= 1.3.3)
+    dplyr, stats, utils, e1071, MAST, SummarizedExperiment
 License: GPL-2
 Encoding: UTF-8
 Language: en-US
