@@ -1,11 +1,13 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+^\.Rproj\.user$
+^\.Rhistory$
+^\.RData$
+^\.Ruserdata$
 # Temporary files created by RMarkdown
-.DS_Store
+^\.DS_Store$
 # Output files from RCheck
-/*.tar.gz
+\.tar\.gz$
 #Reference Manual Files -- moved to inst/rmarkdown
 ^Reference_Manual_DWLS\.md$
-^DWLS_0.1.0\.pdf$
+^DWLS_.+\.pdf$ 
+# Could also delete DWLS_0.1.0.pdf and remove this line
+.Rproj.user
