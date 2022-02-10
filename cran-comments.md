@@ -41,3 +41,7 @@ colnames(data_for_MIST) = c("Gene", "Subject.ID", "Et", "Population", "Number.of
 Number.of.cells is not a global variable (rather it comes from the FromFlatDF -  
 https://rdrr.io/bioc/MAST/man/FromFlatDF.html within the MAST function) 
 therefore I believe this note to be spurious.
+
+
+The notice ' * checking installed package size ... NOTE ',
+CRAN has a limit of 100 MB for a *.tar.gz file (Package is under size requirements)
