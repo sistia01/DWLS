@@ -1,0 +1,20 @@
+citHeader("To cite DWLS in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Accurate estimation of cell-type composition from gene expression data",
+  author       = personList(as.person("Daphne Tsoucas"),
+                   as.person("Rui Dong")),
+		  as.person("Haide Chen")),
+		  as.person("Qian Zhu")),
+		  as.person("Guoji Guo")),
+		  as.person("Guo-Cheng Yuan")),
+  journal      = "Nature Communications",
+  year         = "2019",
+  number       = "2975",
+  url          = "https://www.nature.com/articles/s41467-019-10802-z",
+
+  textVersion  =
+  paste("Tsoucas D, Dong R, Chen H, Zhu Q, Guo G, Yuan GC. 
+	 Accurate estimation of cell-type composition from 
+	 gene expression data. Nat Commun. 2019 Jul 5;10(1):2975.")
+)

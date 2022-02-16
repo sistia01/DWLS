@@ -2,8 +2,8 @@ Package: DWLS
 Type: Package
 Title: Gene Expression Deconvolution Using Dampened Weighted Least Squares
 Version: 0.1.0
-Authors@R: c(
-    person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
+Authors@R: 
+    c(person("Daphne", "Tsoucas", email = "dtsoucas@gmail.com", role = "aut"),
     person("Adriana", "Sistig", email = "adriana.sistig@icahn.mssm.edu", 
         role = c("aut","cre")))
 Description: The rapid development of single-cell transcriptomic technologies 
