@@ -44,5 +44,5 @@ LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Suggests: 
-    testthat (>= 3.0.0), Matrix (>= 1.3.3), Giotto 
+    testthat (>= 3.0.0), Matrix (>= 1.3.3) 
 Config/testthat/edition: 3

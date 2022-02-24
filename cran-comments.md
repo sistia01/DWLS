@@ -1,4 +1,9 @@
 ## R CMD check results
+# Tested 2022_24_02
+Duration: 2m 49s
+0 errors ✓ | 0 warnings ✓ | 0 notes ✓
+
+## Previous Versions -- corrected 
 0 errors ✓ | 0 warnings ✓ | 2 notes x
 There were 0 ERRORs and 0 WARNINGS
 
