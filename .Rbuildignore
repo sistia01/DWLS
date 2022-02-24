@@ -5,4 +5,5 @@
 ^README\.Rmd$
 ^CRAN-RELEASE$
 ^data-raw$
-inst/extdata
+^inst$
+^DWLS_0.1.0\.pdf$

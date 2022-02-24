@@ -28,7 +28,7 @@
 
   # the location of DWLS on github (or maybe some other file storage website)
   # if on github, make sure to use raw.githubusercontent.com and NOT
-  github.com
+  #github.com
   network.location <-
     "https://github.com/sistia01/DWLS/main"
 
@@ -51,7 +51,7 @@
     # one more unfortunate thing. on Windows, the download mode
     #will auto-correct
     # to `mode = "w"` or `mode = "wb"` when necessary, but not on
-    Unix-alikes
+    #Unix-alikes
     # here is the solution, copied directly from R source
     is.binary <- grepl("\\.(gz|bz2|xz|tgz|zip|jar|rd[as]|RData)$",
                        network.paths)
