@@ -15,10 +15,9 @@
 #' @return Signature Matrix built using the Seurat algorithm
 #'
 #' @examples#
-#' \dontrun{
-#' load("data/dataSC_1.RData")
-#' load("data/dataSC_2.RData")
-#' dataSC <- cbind(dataSC_1, dataSC_2)
+#'
+#' load("data/dataSC_3.RData")
+#' dataSC <- dataSC_3
 #' load("data/trueLabels.RData")
 #' load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
 #' load("data/labels.RData") #read in single-cell labels from clustering
@@ -30,7 +29,6 @@
 #'   }
 #' Signature<-buildSignatureMatrixUsingSeurat(dataSC,labels,"results",
 #' diff.cutoff=0.5,pval.cutoff=0.01)
-#' }
 #'
 #' @export buildSignatureMatrixUsingSeurat
 

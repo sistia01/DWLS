@@ -12,13 +12,19 @@
 #' for each unique id.
 #'
 #' @examples
-#' \dontrun{
-#' load("data/dataSC_1.RData")
-#' load("data/dataSC_2.RData")
-#' dataSC <- cbind(dataSC_1, dataSC_2)
-#' load("data/trueLabels.RData")
-#' load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
-#' load("data/labels.RData") #read in single-cell labels from clustering
+#'
+#' data('dataSC_3', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
+#' data('labels', package = "DWLS")
+#' data('trueLabels', package = "DWLS")
+#'
+#' dataSC <- dataSC_3
+#'
+#' #load("data/dataSC_3.RData")
+#' #load("data/trueLabels.RData")
+#' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#' #load("data/labels.RData") #read in single-cell labels from clustering
+#'
 #' labels<-trueLabels
 # #Change to real labels
 #' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth",
@@ -28,7 +34,7 @@
 #'   }
 #' #Run deconvolution
 #' Seurat_test2 <- DEAnalysisSeuratIdents(dataSC, labels, "results")
-#' }
+#'
 #' @export DEAnalysisSeuratIdents
 #'
 #' @importFrom Seurat "CreateSeuratObject"
@@ -39,7 +45,7 @@
 DEAnalysisSeuratIdents<-function(scdata,id,path)
   { exprObj<- CreateSeuratObject(counts=as.data.frame(scdata), project = "DE")
   Idents(object = exprObj) <- as.vector(id)
-  print("Calculating differentially expressed genes:")
+  #print("Calculating differentially expressed genes:")
   for (i in unique(id)){
     #de_group <- FindMarkers(object=exprObj, ident.1 = i, ident.2 = NULL,
                             #only.pos = TRUE, test.use = "bimod")

@@ -10,9 +10,15 @@
 #' @return A dataframe of the log2 applied results
 #'
 #' @examples
-#' \dontrun{
+#' #load("data/dataSC_3.RData")
+#'
+#' data('dataSC_3', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
+#' data('labels', package = "DWLS")
+#' data('trueLabels', package = "DWLS")
+#'
+#' dataSC <- dataSC_3
 #' pseudo.count = 0.1
-#' dataSC <- cbind(dataSC_1, dataSC_2)
 #' data.used.log2 <- log2(dataSC+pseudo.count)
 #' colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
 #' diff.cutoff=0.5
@@ -26,7 +32,6 @@
 #'                                         data.used.log2[,cells.coord.list2])}
 #' group.v <- c(rep(0,length(cells.coord.list1)),
 #'                                          rep(1, length(cells.coord.list2)))
-#' }
 #'
 #' @export stat.log2
 #'

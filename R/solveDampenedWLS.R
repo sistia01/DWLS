@@ -24,12 +24,11 @@
 #' @return value (Dampened weighted least squares estimation values)
 #'
 #' @examples
-#' \dontrun{
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig
 #' B <- trimmed$bulk
 #' solveDampenedWLS(S, B)
-#' }
+#'
 #' @export solveDampenedWLS
 #'
 #' @importFrom dplyr "%>%"

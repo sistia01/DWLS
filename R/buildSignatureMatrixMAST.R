@@ -17,13 +17,17 @@
 #'
 #' @examples
 #'
-#' \dontrun{
-#' load("data/dataSC_1.RData")
-#' load("data/dataSC_2.RData")
-#' dataSC <- cbind(dataSC_1, dataSC_2)
-#' load("data/trueLabels.RData")
-#' load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
-#' load("data/labels.RData") #read in single-cell labels from clustering
+#' data('dataSC_3', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
+#' data('labels', package = "DWLS")
+#' data('trueLabels', package = "DWLS")
+#' dataSC <- dataSC_3
+#'
+#' #load("data/dataSC_3.RData")
+#' #load("data/trueLabels.RData")
+#' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#' #load("data/labels.RData") #read in single-cell labels from clustering
+#'
 #' labels<-trueLabels
 # #Change to real labels
 #' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet",
@@ -31,9 +35,8 @@
 #' for (i in 1:length(newcat)){
 #'   labels[which(labels==(i-1))]<-newcat[i]
 #'   }
-#' Signature<-buildSignatureMatrixMAST(dataSC,labels,"results",
-#' diff.cutoff=0.5,pval.cutoff=0.01)
-#' }
+#'
+#' Signature<-buildSignatureMatrixMAST(dataSC,labels,"results", diff.cutoff=0.5,pval.cutoff=0.01)
 #'
 #' @export buildSignatureMatrixMAST
 #'

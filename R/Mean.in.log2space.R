@@ -10,8 +10,7 @@
 #'
 #' @examples
 #'
-#' \dontrun{
-#' Mean.in.log2space(dataBulk, 0.1)}
+#' Mean.in.log2space(dataBulk, 0.1)
 #'
 #'@export Mean.in.log2space
 #'

@@ -38,14 +38,15 @@
 #'
 #'
 #' @examples
-#' \dontrun{
-#' load("data/dataSC_1.RData")
-#' load("data/dataSC_1.RData")
-#' load("data/trueLabels.RData")
-#' load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
-#' load("data/labels.RData") #read in single-cell labels from clustering
+#'
+#' #load("data/dataSC_3.RData")
+#' data('dataSC_3', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
+#' data('labels', package = "DWLS")
+#' dataSC <- dataSC_3
+#' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#' #load("data/labels.RData") #read in single-cell labels from clustering
 #' labels<-trueLabels
-#' dataSC <- cbind(dataSC_1, dataSC_2)
 # #Change to real labels
 #' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
 #' for (i in 1:length(newcat)){
@@ -53,7 +54,6 @@
 #'   }
 #' #Run deconvolution
 #' Mast_test <- DEAnalysisMAST(dataSC, labels, "results")
-#' }
 #'
 #' @export DEAnalysisMAST
 #'
@@ -126,7 +126,7 @@ DEAnalysisMAST<-function(scdata,id,path)
       write.csv(cluster_lrTest.table, file=paste(path,"/",i,"_lrTest.csv", sep=""))
       save(cluster_lrTest.table, file=paste(path,"/",i,"_MIST.RData", sep=""))
       saveRDS(cluster_lrTest.table, file=paste(path,"/",i,"_MIST.rds", sep=""))
-      print("The RData differential expression results are in the 'results' folder for:")
+      #print("The RData differential expression results are in the 'results' folder for:")
       print(i)
     }
   }

@@ -28,12 +28,20 @@ in a nondeterministic manner. The dampening constant defines the maximum
 value that any weight can take on.
 }
 \examples{
-\dontrun{
+
+#' data('dataSC_3', package = "DWLS")
+data('dataBulk', package = "DWLS")
+data('labels', package = "DWLS")
+data('trueLabels', package = "DWLS")
+
+#load("data/dataSC_3.RData")
+
+dataSC <- dataSC_3
+
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
 B <- trimmed$bulk
 solution <- solveOLSInternal(S,B)
 findDampeningConstant(S, B, solution)
-}
 
 }

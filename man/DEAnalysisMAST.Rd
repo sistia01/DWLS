@@ -48,20 +48,20 @@ the identification of cell-type composition variations across conditions.
 Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 }
 \examples{
-\dontrun{
-load("data/dataSC_1.RData")
-load("data/dataSC_1.RData")
-load("data/trueLabels.RData")
-load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
-load("data/labels.RData") #read in single-cell labels from clustering
+
+#load("data/dataSC_3.RData")
+data('dataSC_3', package = "DWLS")
+data('dataBulk', package = "DWLS")
+data('labels', package = "DWLS")
+dataSC <- dataSC_3
+#load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#load("data/labels.RData") #read in single-cell labels from clustering
 labels<-trueLabels
-dataSC <- cbind(dataSC_1, dataSC_2)
 newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
 for (i in 1:length(newcat)){
   labels[which(labels==(i-1))]<-newcat[i]
   }
 #Run deconvolution
 Mast_test <- DEAnalysisMAST(dataSC, labels, "results")
-}
 
 }

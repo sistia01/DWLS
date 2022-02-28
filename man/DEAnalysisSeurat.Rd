@@ -23,12 +23,17 @@ along with identifying the Idents (through Seurat). The output is
 saved in an RData file for each unique identity (id).
 }
 \examples{
-\dontrun{
-load("data/dataSC_1.RData")
-load("data/dataSC_2.RData")
-dataSC <- cbind(dataSC_1, dataSC_2)
-load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
-load("data/labels.RData") #read in single-cell labels from clustering
+
+data('dataSC_3', package = "DWLS")
+data('dataBulk', package = "DWLS")
+data('labels', package = "DWLS")
+data('trueLabels', package = "DWLS")
+
+dataSC <- dataSC_3
+
+#load("data/dataSC_3.RData")
+#load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#load("data/labels.RData") #read in single-cell labels from clustering
 labels<-trueLabels
 newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth",
 "Tuft","EE")
@@ -37,6 +42,5 @@ for (i in 1:length(newcat)){
   }
 #Run deconvolution
 Seurat_DE <- DEAnalysisSeurat(dataSC, labels, "results")
-}
 
 }
