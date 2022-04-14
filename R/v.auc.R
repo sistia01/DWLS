@@ -13,11 +13,28 @@
 #' @examples
 #'
 #' \donttest{
-#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
+#' "dataSC.RData")
 #' load("dataSC.RData")
+#'
 #' data('dataBulk', package = "DWLS")
-#' data('labels', package = "DWLS")
-#' data('trueLabels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
+#' "dataBulk.RData")
+#' load("dataBulk.RData")
+#'
+#' #data('labels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData",
+#' "labels.RData")
+#' load("labels.RData")
+#'
+#' #data('trueLabels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData",
+#' "trueLabels.RData")
+#' load("trueLabels.RData")
 #'
 #'
 #' pseudo.count = 0.1
@@ -51,10 +68,10 @@
 #' @importFrom ROCR "performance"
 
 
-v.auc = function(data.v,group.v)
-  { prediction.use=prediction(data.v, group.v, 0:1)
-  perf.use=performance(prediction.use,"auc")
-  auc.use=round(perf.use@y.values[[1]],3)
+v.auc = function(data.v, group.v)
+{
+  prediction.use = prediction(data.v, group.v, 0:1)
+  perf.use = performance(prediction.use, "auc")
+  auc.use = round(perf.use@y.values[[1]], 3)
   return(auc.use)
 }
-

@@ -11,14 +11,23 @@
 #'
 #' @examples
 #'  \donttest{
-#' data('Sig', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData",
+#' "Sig.RData")
+#' load("Sig.RData")
+#'
 #' data('dataBulk', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
+#' "dataBulk.RData")
+#' load("dataBulk.RData")
 #'
 #' trimData(Signature_Matrix = Sig, bulkdata = dataBulk)
 #'}
 #' @export trimData
 #'
 #' @importFrom dplyr "%>%"
+#'
 trimData<-function(Signature_Matrix,bulkdata){
   Genes<-intersect(rownames(Signature_Matrix),names(bulkdata))
   B<-bulkdata[Genes]

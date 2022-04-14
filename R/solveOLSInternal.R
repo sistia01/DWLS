@@ -11,10 +11,16 @@
 #'
 #' @examples
 #'
-#' #load("data/Sig.RData")
-#' #load("data/dataBulk.RData")
-#' data('Sig', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData",
+#' "Sig.RData")
+#' load("Sig.RData")
+#'
 #' data('dataBulk', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
+#' "dataBulk.RData")
+#' load("dataBulk.RData")
 #'
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig

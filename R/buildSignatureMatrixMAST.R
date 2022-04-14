@@ -17,11 +17,28 @@
 #'
 #' @examples
 #' \donttest{
-#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
+#' "dataSC.RData")
 #' load("dataSC.RData")
+#'
 #' data('dataBulk', package = "DWLS")
-#' data('labels', package = "DWLS")
-#' data('trueLabels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
+#' "dataBulk.RData")
+#' load("dataBulk.RData")
+#'
+#' #data('labels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData",
+#' "labels.RData")
+#' load("labels.RData")
+#'
+#' #data('trueLabels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData",
+#' "trueLabels.RData")
+#' load("trueLabels.RData")
 #'
 #' #Old Method
 #' #load("data/dataSC_3.RData")

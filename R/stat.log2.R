@@ -11,14 +11,28 @@
 #'
 #' @examples
 #'
-#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
+#' "dataSC.RData")
 #' load("dataSC.RData")
 #'
-#' #load("data/trueLabels.RData")
-#' data('trueLabels.RData', package = "DWLS")
-#' data('dataBulk', package = "DWLS") #read in bulk data for WT1 (control condition #1)
-#' #load("data/labels.RData") #read in single-cell labels from clustering
-#' data('labels.RData', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
+#' "dataBulk.RData")
+#' load("dataBulk.RData")
+#'
+#' #data('labels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData",
+#' "labels.RData")
+#' load("labels.RData")
+#'
+#' #data('trueLabels', package = "DWLS")
+#' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData",
+#' "trueLabels.RData")
+#' load("trueLabels.RData")
 #'
 #' pseudo.count = 0.1
 #' data.used.log2 <- log2(dataSC+pseudo.count)
