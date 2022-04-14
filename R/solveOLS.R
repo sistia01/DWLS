@@ -10,6 +10,12 @@
 #' @return Cell-type proportion
 #'
 #' @examples
+#'
+#' #load("data/Sig.RData")
+#' #load("data/dataBulk.RData")
+#' data('Sig', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
+#'
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig
 #' B <- trimmed$bulk

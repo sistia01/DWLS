@@ -23,15 +23,21 @@ value (Dampened weighted least squares estimation values)
 \description{
 Solve dampened weighted least squares given a dampening constant.
 
-Note: The function uses solveDampenedWLSj() and findDampeningConstant().
+Note: The function uses solveDampenedWLS() and findDampeningConstant().
 }
 \examples{
+
+#load("data/Sig.RData")
+#load("data/dataBulk.RData")
+data('Sig', package = "DWLS")
+data('dataBulk', package = "DWLS")
 
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
 B <- trimmed$bulk
 solution <- solveOLSInternal(S,B)
 j <- findDampeningConstant(S,B,solution)
+goldStandard <- solveOLSInternal(S,B)
 solveDampenedWLSj(S,B,goldStandard,j)
 
 }

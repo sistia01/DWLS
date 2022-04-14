@@ -12,11 +12,38 @@
 #'
 #' @examples
 #'
-#' m.auc=function(data.m,group.v)
-#' { AUC=apply(data.m, 1, function(x) v.auc(x,group.v))
+#' \donttest{
+#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' load("dataSC.RData")
+#' data('dataBulk', package = "DWLS")
+#' data('labels', package = "DWLS")
+#' data('trueLabels', package = "DWLS")
+#'
+#'
+#' pseudo.count = 0.1
+#' data.used.log2   <- log2(dataSC+pseudo.count)
+#' colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
+#' diff.cutoff=0.5
+#' id = labels
+#' for (i in unique(id)){
+#'   cells.symbol.list2 = colnames(data.used.log2)[which(id==i)]
+#'   cells.coord.list2 = match(cells.symbol.list2, colnames(data.used.log2))
+#'   cells.symbol.list1 = colnames(data.used.log2)[which(id != i)]
+#'   cells.coord.list1= match(cells.symbol.list1, colnames(data.used.log2))
+#'   data.used.log2.ordered = cbind(data.used.log2[,cells.coord.list1],
+#'                                          data.used.log2[,cells.coord.list2])
+#'   group.v <- c(rep(0,length(cells.coord.list1)),
+#'                                rep(1, length(cells.coord.list2)))
+#'   #ouput
+#'   log2.stat.result <- stat.log2(data.used.log2.ordered,
+#'                                     group.v, pseudo.count)
+#' m.auc=function(data.used.log2.ordered,group.v)
+#' {AUC=apply(data.used.log2.ordered, 1, function(x) v.auc(x,group.v))
 #' AUC[is.na(AUC)]=0.5
 #' return(AUC)}
 #'
+#' }
+#'}
 #' @export v.auc
 #'
 #' @importFrom dplyr "%>%"

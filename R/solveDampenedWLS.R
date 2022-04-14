@@ -24,6 +24,10 @@
 #' @return value (Dampened weighted least squares estimation values)
 #'
 #' @examples
+#'
+#' load("data/Sig.RData")
+#' load("data/dataBulk.RData")
+#'
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig
 #' B <- trimmed$bulk

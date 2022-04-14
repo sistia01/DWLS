@@ -39,21 +39,31 @@
 #'
 #' @examples
 #'
-#' #load("data/dataSC_3.RData")
-#' data('dataSC_3', package = "DWLS")
+#' \donttest{
+#'
+#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' load("dataSC.RData")
 #' data('dataBulk', package = "DWLS")
 #' data('labels', package = "DWLS")
-#' dataSC <- dataSC_3
+#'
+#' #Old Method
 #' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
 #' #load("data/labels.RData") #read in single-cell labels from clustering
+#' #data('dataSC_3', package = "DWLS")
+#' #dataSC <- dataSC_3
+#'
 #' labels<-trueLabels
+#'
+#'
 # #Change to real labels
 #' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
 #' for (i in 1:length(newcat)){
 #'   labels[which(labels==(i-1))]<-newcat[i]
 #'   }
+#'
 #' #Run deconvolution
-#' Mast_test <- DEAnalysisMAST(dataSC, labels, "results")
+#' Mast_test <- DEAnalysisMAST(dataSC, labels, "inst/extdata/results")
+#'}
 #'
 #' @export DEAnalysisMAST
 #'
@@ -131,5 +141,3 @@ DEAnalysisMAST<-function(scdata,id,path)
     }
   }
 }
-
-

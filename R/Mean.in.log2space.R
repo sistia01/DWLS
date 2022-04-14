@@ -10,6 +10,8 @@
 #'
 #' @examples
 #'
+#' data('dataBulk', package = "DWLS")
+#'
 #' Mean.in.log2space(dataBulk, 0.1)
 #'
 #'@export Mean.in.log2space

@@ -34,6 +34,10 @@ found using cross-validation (with decreasing step size for convergence).
 Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 }
 \examples{
+
+load("data/Sig.RData")
+load("data/dataBulk.RData")
+
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
 B <- trimmed$bulk

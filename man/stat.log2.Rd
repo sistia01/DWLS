@@ -21,14 +21,16 @@ One of the functions required for the  differential expression
 analysis using MAST (DEAnalysisMast()) function.
 }
 \examples{
-#load("data/dataSC_3.RData")
 
-data('dataSC_3', package = "DWLS")
-data('dataBulk', package = "DWLS")
-data('labels', package = "DWLS")
-data('trueLabels', package = "DWLS")
+download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+load("dataSC.RData")
 
-dataSC <- dataSC_3
+#load("data/trueLabels.RData")
+data('trueLabels.RData', package = "DWLS")
+data('dataBulk', package = "DWLS") #read in bulk data for WT1 (control condition #1)
+#load("data/labels.RData") #read in single-cell labels from clustering
+data('labels.RData', package = "DWLS")
+
 pseudo.count = 0.1
 data.used.log2 <- log2(dataSC+pseudo.count)
 colnames(data.used.log2)<-make.unique(colnames(data.used.log2))

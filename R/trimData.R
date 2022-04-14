@@ -10,8 +10,12 @@
 #' @return A list of trimmed bulk and single-cell data.
 #'
 #' @examples
-#' trimData(Signature_Matrix = Sig, bulkdata = dataBulk)
+#'  \donttest{
+#' data('Sig', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
 #'
+#' trimData(Signature_Matrix = Sig, bulkdata = dataBulk)
+#'}
 #' @export trimData
 #'
 #' @importFrom dplyr "%>%"

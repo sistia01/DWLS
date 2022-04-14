@@ -12,14 +12,14 @@
 #' for each unique id.
 #'
 #' @examples
-#'
-#' data('dataSC_3', package = "DWLS")
+#' \donttest{
+#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' load("dataSC.RData")
 #' data('dataBulk', package = "DWLS")
 #' data('labels', package = "DWLS")
 #' data('trueLabels', package = "DWLS")
 #'
-#' dataSC <- dataSC_3
-#'
+#' #Old Method
 #' #load("data/dataSC_3.RData")
 #' #load("data/trueLabels.RData")
 #' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
@@ -34,7 +34,7 @@
 #'   }
 #' #Run deconvolution
 #' Seurat_test2 <- DEAnalysisSeuratIdents(dataSC, labels, "results")
-#'
+#'}
 #' @export DEAnalysisSeuratIdents
 #'
 #' @importFrom Seurat "CreateSeuratObject"

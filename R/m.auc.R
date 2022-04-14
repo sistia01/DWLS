@@ -6,15 +6,16 @@
 #' @return Matrix of standardized output of AUC calculation
 #' @examples
 #'
-#' data('dataSC_3', package = "DWLS")
+#' \donttest{
+#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' load("dataSC.RData")
 #' data('dataBulk', package = "DWLS")
 #' data('labels', package = "DWLS")
 #' data('trueLabels', package = "DWLS")
 #'
-#' dataSC <- dataSC_3
 #'
 #' pseudo.count = 0.1
-#' data.used.log2   <- log2(scdata+pseudo.count)
+#' data.used.log2   <- log2(dataSC+pseudo.count)
 #' colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
 #' diff.cutoff=0.5
 #' id = labels
@@ -31,9 +32,12 @@
 #'   log2.stat.result <- stat.log2(data.used.log2.ordered,
 #'                                     group.v, pseudo.count)
 #'   Auc <- m.auc(data.used.log2.ordered, group.v)}
+#'}
 #'
 #' @export m.auc
 #' @importFrom dplyr "%>%"
+#' @importFrom ROCR "prediction"
+#' @importFrom ROCR "performance"
 
 m.auc = function(dataset, grouping)
   { AUC=apply(dataset, 1, function(x) v.auc(x,grouping))

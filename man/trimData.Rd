@@ -20,6 +20,10 @@ contain the same genes. The result is a list of the intersecting genes
 within the two datasets.
 }
 \examples{
-trimData(Signature_Matrix = Sig, bulkdata = dataBulk)
+ \donttest{
+data('Sig', package = "DWLS")
+data('dataBulk', package = "DWLS")
 
+trimData(Signature_Matrix = Sig, bulkdata = dataBulk)
+}
 }

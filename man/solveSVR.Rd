@@ -39,6 +39,12 @@ Schelker, M. et al. Estimation of immune cell content in tumor
 tissue using single-cell RNA-seq data. Nat. Commun. 8, 2032 (2017).
 }
 \examples{
+
+#load("data/Sig.RData")
+data('Sig', package = "DWLS")
+data('dataBulk', package = "DWLS")
+#load("data/dataBulk.RData")
+
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
 B <- trimmed$bulk

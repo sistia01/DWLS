@@ -20,6 +20,8 @@ count).
 }
 \examples{
 
+data('dataBulk', package = "DWLS")
+
 Mean.in.log2space(dataBulk, 0.1)
 
 }

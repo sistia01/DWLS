@@ -31,6 +31,12 @@
 #' @return Value (SVR)
 #'
 #' @examples
+#'
+#' #load("data/Sig.RData")
+#' data('Sig', package = "DWLS")
+#' data('dataBulk', package = "DWLS")
+#' #load("data/dataBulk.RData")
+#'
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig
 #' B <- trimmed$bulk

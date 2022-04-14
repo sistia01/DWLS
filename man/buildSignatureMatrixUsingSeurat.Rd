@@ -38,17 +38,28 @@ by the DEAnalysis() function.
 \examples{
 #
 
-load("data/dataSC_3.RData")
-dataSC <- dataSC_3
-load("data/trueLabels.RData")
-load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
-load("data/labels.RData") #read in single-cell labels from clustering
+\donttest{
+download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+load("dataSC.RData")
+
+data('dataBulk', package = "DWLS")
+data('labels', package = "DWLS")
+data('trueLabels', package = "DWLS")
+
+#Old Method
+#load("data/dataSC_3.RData")
+#load("data/trueLabels.RData")
+#load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#load("data/labels.RData") #read in single-cell labels from clustering
+
 labels<-trueLabels
+
+Change to real labels
 newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
 for (i in 1:length(newcat)){
   labels[which(labels==(i-1))]<-newcat[i]
   }
-Signature<-buildSignatureMatrixUsingSeurat(dataSC,labels,"results",
-diff.cutoff=0.5,pval.cutoff=0.01)
+Signature<-buildSignatureMatrixUsingSeurat(dataSC,labels,"inst/extdata/results", diff.cutoff=0.5,pval.cutoff=0.01)
+}
 
 }

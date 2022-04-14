@@ -17,20 +17,20 @@
 #'
 #' @examples
 #'
-#' #load("data/dataSC_3.RData")
-#'
-#' data('dataSC_3', package = "DWLS")
+#' \donttest{
+#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' load("dataSC.RData")
 #' data('dataBulk', package = "DWLS")
 #' data('labels', package = "DWLS")
 #' data('trueLabels', package = "DWLS")
 #'
-#' dataSC <- dataSC_3
-#'
+#' #Old Method
 #' #load("data/trueLabels.RData")
 #' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
 #' #load("data/labels.RData") #read in single-cell labels from clustering
 #'
 #' labels<-trueLabels
+#'
 # #Change to real labels
 #' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet",
 #' "Paneth","Tuft","EE")
@@ -39,7 +39,7 @@
 #'   }
 #' Signature<-buildSignatureMatrixMAST(dataSC,labels,"results",
 #' diff.cutoff=0.5,pval.cutoff=0.01)
-#'
+#'}
 #' @export MASTSignatureMatrixGivenDE
 #'
 #' @importFrom dplyr "%>%"
@@ -47,9 +47,9 @@
 
 
 MASTSignatureMatrixGivenDE<-function(scdata,id,path,
-                                   diff.cutoff=0.5,pval.cutoff=0.01){
+                                   diff.cutoff=0.5,pval.cutoff=0.01)
   #DEAnalysisMAST(scdata,id,path)
-  numberofGenes<-c()
+  { numberofGenes<-c()
   for (i in unique(id)){
     if(file.exists(paste(path,"/",i,"_MIST.RData", sep=""))){
       load(file=paste(path,"/",i,"_MIST.RData", sep=""))
@@ -61,11 +61,10 @@ MASTSignatureMatrixGivenDE<-function(scdata,id,path,
                       which(cluster_lrTest.table$log2fold_change>diff.cutoff))]
       nonMir = grep("MIR|Mir", DEGenes, invert = T)
       assign(paste("cluster_lrTest.table.",i,sep=""),
-             cluster_lrTest.table[which(cluster_lrTest.table$Gene%in%DEGenes[nonMir]),])
+    cluster_lrTest.table[which(cluster_lrTest.table$Gene%in%DEGenes[nonMir]),])
       numberofGenes<-c(numberofGenes,length(DEGenes[nonMir]))
     }
   }
-
   #need to reduce number of genes
   #for each subset, order significant genes by decreasing fold change,
   #choose between 50 and 200 genes
@@ -119,3 +118,4 @@ MASTSignatureMatrixGivenDE<-function(scdata,id,path,
   saveRDS(Sig,file=paste(path,"/Sig.rds",sep=""))
   return(Sig)
 }
+

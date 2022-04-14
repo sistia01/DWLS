@@ -18,14 +18,11 @@
 #'
 #' @examples
 #'
-#' #' data('dataSC_3', package = "DWLS")
+#' download.file("https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData", "dataSC.RData")
+#' load("dataSC.RData")
 #' data('dataBulk', package = "DWLS")
 #' data('labels', package = "DWLS")
 #' data('trueLabels', package = "DWLS")
-#'
-#' #load("data/dataSC_3.RData")
-#'
-#' dataSC <- dataSC_3
 #'
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig
