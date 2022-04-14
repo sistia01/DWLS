@@ -21,29 +21,30 @@ One of the functions required for the  differential expression
 analysis using MAST (DEAnalysisMast()) function.
 }
 \examples{
+\donttest{
+#dataSC
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData"
+dest <- "data/dataSC.RData"
+download.file(url, dest)
+load("data/dataSC.RData")
 
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
-"dataSC.RData")
-load("dataSC.RData")
+dataBulk
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+dest <- "data/dataBulk.RData"
+download.file(url, dest)
+load("data/dataBulk.RData")
 
-#data('dataBulk', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
-"dataBulk.RData")
-load("dataBulk.RData")
-
-#data('labels', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData",
-"labels.RData")
-load("labels.RData")
+#labels
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData"
+dest <- "data/labels.RData"
+download.file(url, dest)
+load("data/labels.RData")
 
 #data('trueLabels', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData",
-"trueLabels.RData")
-load("trueLabels.RData")
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData"
+dest <- "data/trueLabels.RData"
+download.file(url, dest)
+load("data/trueLabels.RData")
 
 pseudo.count = 0.1
 data.used.log2 <- log2(dataSC+pseudo.count)
@@ -59,5 +60,5 @@ for (i in unique(id)){
                                         data.used.log2[,cells.coord.list2])}
 group.v <- c(rep(0,length(cells.coord.list1)),
                                          rep(1, length(cells.coord.list2)))
-
+}
 }

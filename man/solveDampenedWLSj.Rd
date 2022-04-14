@@ -26,17 +26,18 @@ Solve dampened weighted least squares given a dampening constant.
 Note: The function uses solveDampenedWLS() and findDampeningConstant().
 }
 \examples{
+\donttest{
+#Sig
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData"
+dest <- "data/Sig.RData"
+download.file(url, dest)
+load("data/Sig.RData")
 
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData",
-"Sig.RData")
-load("Sig.RData")
-
-#data('dataBulk', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
-"dataBulk.RData")
-load("dataBulk.RData")
+#dataBulk
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+dest <- "data/dataBulk.RData"
+download.file(url, dest)
+load("data/dataBulk.RData")
 
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
@@ -45,5 +46,5 @@ solution <- solveOLSInternal(S,B)
 j <- findDampeningConstant(S,B,solution)
 goldStandard <- solveOLSInternal(S,B)
 solveDampenedWLSj(S,B,goldStandard,j)
-
+}
 }

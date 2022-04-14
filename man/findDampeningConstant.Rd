@@ -29,33 +29,17 @@ value that any weight can take on.
 }
 \examples{
 \donttest{
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
-"dataSC.RData")
-load("dataSC.RData")
+#Sig
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData"
+dest <- "data/Sig.RData"
+download.file(url, dest)
+load("data/Sig.RData")
 
-#data('dataBulk', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
-"dataBulk.RData")
-load("dataBulk.RData")
-
-#data('labels', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData",
-"labels.RData")
-load("labels.RData")
-
-#data('trueLabels', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData",
-"trueLabels.RData")
-load("trueLabels.RData")
-
-#' download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData",
-"Sig.RData")
-load("Sig.RData")
+#dataBulk
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+dest <- "data/dataBulk.RData"
+download.file(url, dest)
+load("data/dataBulk.RData")
 
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig

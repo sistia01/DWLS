@@ -19,13 +19,14 @@ Applies the log2 to the mean of ((2^x - pseudo count) + pseudo
 count).
 }
 \examples{
-
-#data('dataBulk', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
-"dataBulk.RData")
-load("dataBulk.RData")
+\donttest{
+#dataBulk
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+dest <- "data/dataBulk.RData"
+download.file(url, dest)
+load("data/dataBulk.RData")
 
 Mean.in.log2space(dataBulk, 0.1)
+}
 
 }

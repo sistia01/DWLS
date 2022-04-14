@@ -31,23 +31,24 @@
 #' @return Value (SVR)
 #'
 #' @examples
+#'\donttest{
+#' #Sig
+#' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData"
+#' dest <- "data/Sig.RData"
+#' download.file(url, dest)
+#' load("data/Sig.RData")
 #'
-#' download.file(
-#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData",
-#' "Sig.RData")
-#' load("Sig.RData")
-#'
-#' #data('dataBulk', package = "DWLS")
-#' download.file(
-#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
-#' "dataBulk.RData")
-#' load("dataBulk.RData")
+#' #dataBulk
+#' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+#' dest <- "data/dataBulk.RData"
+#' download.file(url, dest)
+#' load("data/dataBulk.RData")
 #'
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig
 #' B <- trimmed$bulk
 #' solveSVR(S, B)
-#'
+#'}
 #' @export solveSVR
 #'
 #' @importFrom dplyr "%>%"

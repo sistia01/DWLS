@@ -36,33 +36,32 @@
 #' its constituent cell types.The function will return 3 different files:
 #' an RData file, an rds file, and a csv file.
 #'
-#'
 #' @examples
-#'
 #' \donttest{
 #'
-#' download.file(
-#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
-#' "dataSC.RData")
-#' load("dataSC.RData")
+#' #dataSC
+#' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData"
+#' dest <- "data/dataSC.RData"
+#' download.file(url, dest)
+#' load("data/dataSC.RData")
 #'
-#' #data('dataBulk', package = "DWLS")
-#' download.file(
-#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
-#' "dataBulk.RData")
-#' load("dataBulk.RData")
+#' dataBulk
+#' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+#' dest <- "data/dataBulk.RData"
+#' download.file(url, dest)
+#' load("data/dataBulk.RData")
 #'
-#' #data('labels', package = "DWLS")
-#' download.file(
-#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData",
-#' "labels.RData")
-#' load("labels.RData")
+#' #labels
+#' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData"
+#' dest <- "data/labels.RData"
+#' download.file(url, dest)
+#' load("data/labels.RData")
 #'
 #' #data('trueLabels', package = "DWLS")
-#' download.file(
-#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData",
-#' "trueLabels.RData")
-#' load("trueLabels.RData")
+#' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData"
+#' dest <- "data/trueLabels.RData"
+#' download.file(url, dest)
+#' load("data/trueLabels.RData")
 #'
 #' #Old Method
 #' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
@@ -96,7 +95,6 @@
 #' @importFrom reshape "melt"
 #' @importFrom utils "head"
 #' @importFrom utils "write.csv"
-#'
 
 DEAnalysisMAST<-function(scdata,id,path)
   { Number.of.Cells <- NULL

@@ -8,8 +8,3 @@
 ^inst$
 ^DWLS_0.1.0\.pdf$
 ^\.DS_Store$
-^Sig\.RData$
-^dataBulk\.RData$
-^dataSC\.RData$
-^labels\.RData$
-^trueLabels\.RData$

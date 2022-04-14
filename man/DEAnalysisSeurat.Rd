@@ -24,28 +24,29 @@ saved in an RData file for each unique identity (id).
 }
 \examples{
 \donttest{
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
-"dataSC.RData")
-load("dataSC.RData")
+#dataSC
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData"
+dest <- "data/dataSC.RData"
+download.file(url, dest)
+load("data/dataSC.RData")
 
-#data('dataBulk', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
-"dataBulk.RData")
-load("dataBulk.RData")
+dataBulk
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+dest <- "data/dataBulk.RData"
+download.file(url, dest)
+load("data/dataBulk.RData")
 
-#data('labels', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData",
-"labels.RData")
-load("labels.RData")
+#labels
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData"
+dest <- "data/labels.RData"
+download.file(url, dest)
+load("data/labels.RData")
 
 #data('trueLabels', package = "DWLS")
-download.file(
-"https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData",
-"trueLabels.RData")
-load("trueLabels.RData")
+url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData"
+dest <- "data/trueLabels.RData"
+download.file(url, dest)
+load("data/trueLabels.RData")
 
 #Old Method
 #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
@@ -56,8 +57,9 @@ newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE"
 for (i in 1:length(newcat)){
   labels[which(labels==(i-1))]<-newcat[i]
   }
-#Run deconvolution
-Seurat_DE <- DEAnalysisSeurat(dataSC, labels, "inst/extdata/results")
+#Run deconvolution -- run on local
+#Results in inst/extdata/results
+#Seurat_DE <- DEAnalysisSeurat(dataSC, labels, "inst/extdata/results")
 }
 
 }
