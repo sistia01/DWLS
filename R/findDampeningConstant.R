@@ -17,7 +17,7 @@
 #' @return value (dampening constant value)
 #'
 #' @examples
-#'
+#'\donttest{
 #' download.file(
 #' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
 #' "dataSC.RData")
@@ -41,11 +41,17 @@
 #' "trueLabels.RData")
 #' load("trueLabels.RData")
 #'
+#' #' download.file(
+#' "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData",
+#' "Sig.RData")
+#' load("Sig.RData")
+#'
 #' trimmed <- trimData(Sig, dataBulk)
 #' S <- trimmed$sig
 #' B <- trimmed$bulk
 #' solution <- solveOLSInternal(S,B)
 #' findDampeningConstant(S, B, solution)
+#'}
 #'
 #' @export findDampeningConstant
 #'

@@ -28,7 +28,7 @@ in a nondeterministic manner. The dampening constant defines the maximum
 value that any weight can take on.
 }
 \examples{
-
+\donttest{
 download.file(
 "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData",
 "dataSC.RData")
@@ -52,10 +52,16 @@ download.file(
 "trueLabels.RData")
 load("trueLabels.RData")
 
+#' download.file(
+"https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData",
+"Sig.RData")
+load("Sig.RData")
+
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
 B <- trimmed$bulk
 solution <- solveOLSInternal(S,B)
 findDampeningConstant(S, B, solution)
+}
 
 }
