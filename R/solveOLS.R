@@ -30,7 +30,6 @@
 #' @export solveOLS
 #'
 #' @importFrom dplyr "%>%"
-#'
 
 solveOLS<-function(S,B){
   D<-t(S)%*%S

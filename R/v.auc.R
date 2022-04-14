@@ -36,7 +36,6 @@
 #' "trueLabels.RData")
 #' load("trueLabels.RData")
 #'
-#'
 #' pseudo.count = 0.1
 #' data.used.log2   <- log2(dataSC+pseudo.count)
 #' colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
@@ -66,7 +65,6 @@
 #' @importFrom dplyr "%>%"
 #' @importFrom ROCR "prediction"
 #' @importFrom ROCR "performance"
-
 
 v.auc = function(data.v, group.v)
 {

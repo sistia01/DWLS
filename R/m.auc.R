@@ -51,6 +51,7 @@
 #'}
 #'
 #' @export m.auc
+#'
 #' @importFrom dplyr "%>%"
 #' @importFrom ROCR "prediction"
 #' @importFrom ROCR "performance"

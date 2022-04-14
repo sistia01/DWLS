@@ -64,7 +64,6 @@
 #' @importFrom dplyr "%>%"
 #' @importFrom stats "p.adjust"
 
-
 buildSignatureMatrixMAST<-function(scdata,id,path,diff.cutoff=0.5,
                                    pval.cutoff=0.01, f = 200)
   { DEAnalysisMAST(scdata,id,path)

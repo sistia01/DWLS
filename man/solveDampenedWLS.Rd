@@ -46,7 +46,6 @@ download.file(
 "dataBulk.RData")
 load("dataBulk.RData")
 
-
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig
 B <- trimmed$bulk

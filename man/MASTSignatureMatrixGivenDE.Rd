@@ -75,4 +75,5 @@ for (i in 1:length(newcat)){
 Signature<-buildSignatureMatrixMAST(dataSC,labels,"results",
 diff.cutoff=0.5,pval.cutoff=0.01)
 }
+
 }

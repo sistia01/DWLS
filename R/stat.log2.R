@@ -54,7 +54,6 @@
 #' @importFrom dplyr "%>%"
 #' @importFrom stats "aggregate"
 
-
 stat.log2=function(data.m, group.v, pseudo.count)
   #data.m=data.used.log2
   { log2.mean.r <- aggregate(t(data.m), list(as.character(group.v)),

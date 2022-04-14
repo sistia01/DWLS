@@ -40,7 +40,6 @@
 #' @importFrom dplyr "%>%"
 #' @importFrom quadprog "solve.QP"
 
-
 solveDampenedWLSj<-function(S,B,goldStandard,j){
   multiplier<-1*2^(j-1)
   sol<-goldStandard

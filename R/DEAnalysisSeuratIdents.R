@@ -52,13 +52,13 @@
 #' #Run deconvolution
 #' Seurat_test2 <- DEAnalysisSeuratIdents(dataSC, labels, "results")
 #'}
+#'
 #' @export DEAnalysisSeuratIdents
 #'
 #' @importFrom Seurat "CreateSeuratObject"
 #' @importFrom Seurat "FindMarkers"
 #' @importFrom Seurat "Idents"
-#'
-#'
+
 DEAnalysisSeuratIdents<-function(scdata,id,path)
   { exprObj<- CreateSeuratObject(counts=as.data.frame(scdata), project = "DE")
   Idents(object = exprObj) <- as.vector(id)

@@ -59,4 +59,5 @@ for (i in 1:length(newcat)){
 #Run deconvolution
 Seurat_DE <- DEAnalysisSeurat(dataSC, labels, "inst/extdata/results")
 }
+
 }

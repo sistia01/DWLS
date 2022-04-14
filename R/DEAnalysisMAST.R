@@ -72,15 +72,17 @@
 #'
 #' labels<-trueLabels
 #'
-#'
 # #Change to real labels
-#' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+#' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft",
+#'  "EE")
 #' for (i in 1:length(newcat)){
 #'   labels[which(labels==(i-1))]<-newcat[i]
 #'   }
 #'
 #' #Run deconvolution
-#' Mast_test <- DEAnalysisMAST(dataSC, labels, "inst/extdata/results")
+#' #Results are in inst/extdata/results folder -- run on local
+#' #Example code below
+#' #Mast_test <- DEAnalysisMAST(dataSC, labels, "inst/extdata/results")
 #'}
 #'
 #' @export DEAnalysisMAST
@@ -95,8 +97,6 @@
 #' @importFrom utils "head"
 #' @importFrom utils "write.csv"
 #'
-
-#perform DE analysis using MAST
 
 DEAnalysisMAST<-function(scdata,id,path)
   { Number.of.Cells <- NULL
