@@ -42,7 +42,7 @@ download.file(
 "dataSC.RData")
 load("dataSC.RData")
 
-data('dataBulk', package = "DWLS")
+#data('dataBulk', package = "DWLS")
 download.file(
 "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
 "dataBulk.RData")
@@ -63,16 +63,19 @@ load("trueLabels.RData")
 #Old Method
 #load("data/dataSC_3.RData")
 #load("data/trueLabels.RData")
-#load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#load("data/dataBulk.RData") #read in bulk data for WT1 (control condition#1)
 #load("data/labels.RData") #read in single-cell labels from clustering
 
 labels<-trueLabels
 
-newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft","EE")
+newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft",
+"EE")
 for (i in 1:length(newcat)){
   labels[which(labels==(i-1))]<-newcat[i]
   }
 
-Signature<-buildSignatureMatrixMAST(dataSC,labels,"inst/extdata/results", diff.cutoff=0.5,pval.cutoff=0.01)
+Signature <-
+buildSignatureMatrixMAST(
+dataSC,labels,"inst/extdata/results",diff.cutoff = 0.5,pval.cutoff = 0.01)
 }
 }

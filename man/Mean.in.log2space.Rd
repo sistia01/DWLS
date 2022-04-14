@@ -20,7 +20,7 @@ count).
 }
 \examples{
 
-data('dataBulk', package = "DWLS")
+#data('dataBulk', package = "DWLS")
 download.file(
 "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData",
 "dataBulk.RData")
