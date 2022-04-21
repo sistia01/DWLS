@@ -14,7 +14,7 @@
 #'
 #' @return Signature Matrix built using the Seurat algorithm
 #'
-#' @examples#
+#' @examples
 #'
 #' \donttest{
 #' #dataSC
@@ -23,7 +23,7 @@
 #' download.file(url, dest)
 #' load("data/dataSC.RData")
 #'
-#' dataBulk
+#' #dataBulk
 #' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
 #' dest <- "data/dataBulk.RData"
 #' download.file(url, dest)
@@ -49,7 +49,7 @@
 #'
 #' labels<-trueLabels
 #'
-#' Change to real labels
+#' #Change to real labels
 #' newcat<-c("NonCycISC","CycISC","TA","Ent","PreEnt","Goblet","Paneth","Tuft",
 #' "EE")
 #' for (i in 1:length(newcat)){

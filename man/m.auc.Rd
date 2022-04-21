@@ -27,7 +27,7 @@ dest <- "data/dataSC.RData"
 download.file(url, dest)
 load("data/dataSC.RData")
 
-dataBulk
+#dataBulk
 url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
 dest <- "data/dataBulk.RData"
 download.file(url, dest)
@@ -46,7 +46,7 @@ download.file(url, dest)
 load("data/trueLabels.RData")
 
 pseudo.count = 0.1
-data.used.log2   <- log2(dataSC+pseudo.count)
+data.used.log2 <- log2(dataSC+pseudo.count)
 colnames(data.used.log2)<-make.unique(colnames(data.used.log2))
 diff.cutoff=0.5
 id = labels

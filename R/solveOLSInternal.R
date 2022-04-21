@@ -10,7 +10,7 @@
 #' @return Cell numbers
 #'
 #' @examples
-#'\donttest{
+#' \donttest{
 #' #Sig
 #' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData"
 #' dest <- "data/Sig.RData"

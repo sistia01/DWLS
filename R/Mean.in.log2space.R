@@ -9,8 +9,8 @@
 #' @return Values
 #'
 #' @examples
-#'\donttest{
-#'#dataBulk
+#' \donttest{
+#' #dataBulk
 #' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
 #' dest <- "data/dataBulk.RData"
 #' download.file(url, dest)
@@ -19,7 +19,7 @@
 #' Mean.in.log2space(dataBulk, 0.1)
 #'}
 #'
-#'@export Mean.in.log2space
+#' @export Mean.in.log2space
 #'
 #' @importFrom dplyr "%>%"
 
