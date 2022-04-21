@@ -52,7 +52,7 @@ Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 
 #dataSC
 url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData"
-dest <- "data/dataSC.RData"
+dest <- "data"
 download.file(url, dest)
 load("data/dataSC.RData")
 
