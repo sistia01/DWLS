@@ -28,7 +28,7 @@ dest <- "data/dataSC.RData"
 download.file(url, dest)
 load("data/dataSC.RData")
 
-dataBulk
+#dataBulk
 url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
 dest <- "data/dataBulk.RData"
 download.file(url, dest)
