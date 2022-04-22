@@ -51,10 +51,11 @@ Note: The function uses solveDampenedWLSj() and findDampeningConstant().
 \donttest{
 
 #dataSC
-url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData"
-dest <- "data"
-download.file(url, dest)
-load("data/dataSC.RData")
+#url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData"
+#dest <- "data/dataSC.RData"
+#download.file(url, dest)
+#load("data/dataSC.RData")
+load(system.file("extdata", "dataSC.RData", package = "DWLS"))
 
 #dataBulk
 url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
