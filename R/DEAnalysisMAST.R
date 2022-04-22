@@ -44,7 +44,8 @@
 #' #dest <- "data/dataSC.RData"
 #' #download.file(url, dest)
 #' #load("data/dataSC.RData")
-#' load(system.file("extdata", "dataSC.RData", package = "DWLS"))
+#' #load(system.file("extdata", "dataSC.RData", package = "DWLS"))
+#' system.file("extdata", "dataSC.RData", package = "DWLS")
 #'
 #' #dataBulk
 #' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
