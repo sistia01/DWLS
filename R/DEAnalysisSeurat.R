@@ -36,6 +36,7 @@
 #' #load("data/labels.RData")
 #' labels <- system.file("extdata", "labels.RData", package = "DWLS")
 #'
+#' #trueLabels
 #' #data('trueLabels', package = "DWLS")
 #' #url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData"
 #' #dest <- "data/trueLabels.RData"
