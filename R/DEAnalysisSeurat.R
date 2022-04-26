@@ -36,13 +36,14 @@
 #' #load("data/labels.RData")
 #' labels <- system.file("extdata", "labels.RData", package = "DWLS")
 #'
-#' #trueLabels
 #' #data('trueLabels', package = "DWLS")
 #' #url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData"
 #' #dest <- "data/trueLabels.RData"
 #' #download.file(url, dest)
 #' #load("data/trueLabels.RData")
 #' trueLabels <- system.file("extdata", "trueLabels.RData", package = "DWLS")
+#'
+#' labels<-trueLabels
 #'
 #' #Old Method
 #' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
@@ -58,7 +59,7 @@
 #'   }
 #' #Run deconvolution -- run on local
 #' #Results in inst/extdata/results
-#' #Seurat_DE <- DEAnalysisSeurat(dataSC, labels, "inst/extdata/results")
+#' Seurat_DE <- DEAnalysisSeurat(dataSC, labels, "inst/extdata/results")
 #'}
 #'
 #' @export DEAnalysisSeurat

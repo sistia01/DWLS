@@ -86,7 +86,7 @@
 #' #Run deconvolution
 #' #Results are in inst/extdata/results folder -- run on local
 #' #Example code below
-#' #Mast_test <- DEAnalysisMAST(dataSC, labels, "inst/extdata/results")
+#' Mast_test <- DEAnalysisMAST(dataSC, labels, "inst/extdata/results")
 #'}
 #'
 #' @export DEAnalysisMAST
