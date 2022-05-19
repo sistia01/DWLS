@@ -22,16 +22,18 @@ that cell type numbers are greater than 0.
 \examples{
 \donttest{
 #Sig
-url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData"
-dest <- "data/Sig.RData"
-download.file(url, dest)
-load("data/Sig.RData")
+#url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/Sig.RData"
+#dest <- "data/Sig.RData"
+#download.file(url, dest)
+#load("data/Sig.RData")
+load(system.file("extdata", "Sig.RData", package = "DWLS"))
 
 #dataBulk
-url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
-dest <- "data/dataBulk.RData"
-download.file(url, dest)
-load("data/dataBulk.RData")
+#url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+#dest <- "data/dataBulk.RData"
+#download.file(url, dest)
+#load("data/dataBulk.RData")
+load(system.file("extdata", "dataBulk.RData", package = "DWLS"))
 
 trimmed <- trimData(Sig, dataBulk)
 S <- trimmed$sig

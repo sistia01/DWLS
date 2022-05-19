@@ -42,31 +42,41 @@
 #' #dataSC
 #' #url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataSC.RData"
 #' #dest <- "data/dataSC.RData"
-#' #download.file(url, dest)
-#' #load("data/dataSC.RData")
-#' #load(system.file("extdata", "dataSC.RData", package = "DWLS"))
-#' dataSC <- system.file("extdata", "dataSC.RData", package = "DWLS")
+#' #load(download.file(url, tempfile(data/dataSC.RData))
+#' #load("dataSC.RData")
+#' #SOLUTION
+#' load(system.file("extdata", "dataSC.RData", package = "DWLS"))
 #'
 #' #dataBulk
-#' #url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
-#' #dest <- "data/dataBulk.RData"
-#' #download.file(url, dest)
+#' url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/dataBulk.RData"
+#' dest <- "data/dataBulk.RData"
+#' load(download.file(url, tempfile(dest)))
 #' #load("data/dataBulk.RData")
-#' dataBulk <- system.file("extdata", "dataBulk.RData", package = "DWLS")
+#' load(system.file("extdata", "dataBulk.RData", package = "DWLS"))
 #'
 #' #labels
 #' #url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/labels.RData"
 #' #dest <- "data/labels.RData"
 #' #download.file(url, dest)
 #' #load("data/labels.RData")
-#' labels <- system.file("extdata", "labels.RData", package = "DWLS")
+#' load(system.file("extdata", "labels.RData", package = "DWLS"))
 #'
 #' #data('trueLabels', package = "DWLS")
 #' #url <- "https://github.com/sistia01/DWLS/raw/main/inst/extdata/trueLabels.RData"
 #' #dest <- "data/trueLabels.RData"
 #' #download.file(url, dest)
 #' #load("data/trueLabels.RData")
-#' trueLabels <- system.file("extdata", "trueLabels.RData", package = "DWLS")
+#' load(system.file("extdata", "trueLabels.RData", package = "DWLS"))
+#'
+#' labels<-trueLabels
+#'
+#' #Old Method
+#' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
+#' #load("data/labels.RData") #read in single-cell labels from clustering
+#' #data('dataSC_3', package = "DWLS")
+#' #dataSC <- dataSC_3
+#'
+#' labels<-trueLabels
 #'
 #' #Old Method
 #' #load("data/dataBulk.RData") #read in bulk data for WT1 (control condition #1)
